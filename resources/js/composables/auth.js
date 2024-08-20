@@ -161,11 +161,11 @@ export default function useAuth() {
         processing.value = true
 
         axios.post('/logout')
-            .then(response => {
-                user.name = ''
-                user.email = ''
-                authStore.logout()
-                router.push({ name: 'auth.login' })
+            .then(async  response => {
+                user.name = '';
+                user.email = '';
+                authStore.logout();
+                window.location.reload();
             })
             .catch(error => {
                 // swal({

@@ -5,15 +5,7 @@
         @dragleave="dragleave"
         @drop="drop"
     >
-        <input
-            type="file"
-            name="file"
-            id="fileInput"
-            class="hidden-input"
-            @change="onChange"
-            ref="refFiles"
-            accept=".gif,.webp,.jpg,.jpeg,.png"
-        />
+        <input type="file" name="file[]" id="fileInput" class="hidden-input" @change="onChange" ref="refFiles" accept=".gif,.webp,.jpg,.jpeg,.png" multiple/>
 
         <label for="fileInput" class="file-label text-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-image"
@@ -27,21 +19,15 @@
         </label>
 
         <div class="preview-container mt-4" v-if="thumbnail || modelValue">
-            <div :key="thumbnail.name" class="preview-card">
+            <div v-for="(thumb, index) in modelValue || thumbnail" :key="thumb.name" class="preview-card">
                 <div>
-                    <img class="preview-img" :src="generateThumbnail(thumbnail)"/>
-                    <p :title="thumbnail.name">
-                        {{ makeName(thumbnail.name) }}
+                    <img class="preview-img" :src="generateThumbnail(thumb)"/>
+                    <p :title="thumb.name">
+                        {{ makeName(thumb.name)}}
                     </p>
                 </div>
                 <div>
-                    <a
-                        href="javascript:void(0)"
-                        class="ml-2"
-                        type="button"
-                        @click="remove(index)"
-                        title="Remove file"
-                    >
+                    <a href="javascript:void(0)" class="ml-2" type="button" @click="remove(index)" title="Remove file">
                         <b>&times;</b>
                     </a>
                 </div>
@@ -54,10 +40,10 @@
 import {onMounted, ref, watch} from "vue";
 
 const props = defineProps({
-    modelValue: String
+    modelValue: []
 });
 
-const thumbnail = ref('')
+const thumbnail = ref([]);
 const isDragging = ref(false)
 const refFiles = ref(null)
 
@@ -65,11 +51,13 @@ const emit = defineEmits(['update:modelValue'])
 
 const onChange = (() => {
     thumbnail.value = refFiles.value.files;
+    emit('update:modelValue', refFiles.value.files)
 })
 
 const generateThumbnail = ((file) => {
+
     if (props.modelValue) {
-        return props.modelValue
+        return file.url
     } else  {
         let fileSrc = URL.createObjectURL(file);
         setTimeout(() => {
@@ -90,7 +78,8 @@ const makeName = ((name) => {
 })
 
 const remove = ((i) => {
-    thumbnail.value = ""
+    props.modelValue.splice(i, 1);
+    emit('update:modelValue', props.modelValue)
 })
 
 const dragover = ((e) => {
@@ -168,7 +157,7 @@ watch(thumbnail, () => {
 
 <style scoped>
 .dropzone-container {
-    padding: 4rem;
+    padding: 4rem 2rem;
     background: #f7fafc;
     border: 1px solid #e2e8f0;
 }
@@ -190,11 +179,12 @@ watch(thumbnail, () => {
 .preview-container {
     display: flex;
     margin-top: 2rem;
+    position: relative;
+    flex-wrap: wrap;
 }
 
 .preview-card {
     display: flex;
-    border: 1px solid #a2a2a2;
     padding: 5px;
     margin-left: 5px;
 }

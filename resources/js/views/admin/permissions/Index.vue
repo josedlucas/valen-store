@@ -17,18 +17,18 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th class="px-6 py-3 bg-gray-50 text-left">
+                                <th class="p py-3 bg-gray-50 text-left">
                                     <input v-model="search_id" type="text"
                                            class="inline-block mt-1 form-control"
                                            placeholder="Filter by ID">
                                 </th>
-                                <th class="px-6 py-3 bg-gray-50 text-left">
+                                <th class="p py-3 bg-gray-50 text-left">
                                     <input v-model="search_title" type="text"
                                            class="inline-block mt-1 form-control"
                                            placeholder="Filter by Title">
                                 </th>
-                                <th class="px-6 py-3 text-start"></th>
-                                <th class="px-6 py-3 text-start"></th>
+                                <th class=" py-3 text-start"></th>
+                                <th class=" py-3 text-start"></th>
                             </tr>
                             <tr>
                                 <th class="px-6 py-3 text-start">

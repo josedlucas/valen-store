@@ -27,10 +27,10 @@ class CreateAdminUserSeeder extends Seeder
         $role = Role::create(['name' => 'admin']);
         $role2 = Role::create(['name' => 'user']);
         $permissions = [
-            'post-list',
-            'post-create',
-            'post-edit',
-            'post-delete'
+            'product-list',
+            'product-create',
+            'product-edit',
+            'product-delete'
             ];
         $role2->syncPermissions($permissions);
         Category::create(['name' => 'Vue.js']);

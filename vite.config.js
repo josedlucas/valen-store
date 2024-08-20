@@ -9,6 +9,11 @@ export default defineConfig({
             input: [
                 'resources/sass/app.scss',
                 'resources/js/app.js',
+                'resources/argon/scss/argon-dashboard.scss',
+                'resources/argon/css/nucleo-icons.css',
+                'resources/argon/css/nucleo-svg.css',
+                'resources/valenweb/scss/bootstrap-valen.scss',
+                'resources/valenweb/scss/style.scss',
             ],
             // reactivityTransform: true,
             refresh: true,

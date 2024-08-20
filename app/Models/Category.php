@@ -14,8 +14,8 @@ class Category extends Model
     /**
      * Get the posts for the category.
      */
-    public function posts()
+    public function products()
     {
-        return $this->belongsToMany(Post::class,'category_post');
+        return $this->belongsToMany(Product::class,'category_product');
     }
 }

@@ -1,118 +1,53 @@
 <template>
-    <AdminNavbar />
-    <div class="d-flex align-items-stretch w-100">
-        <AdminSidebar />
-        <div class="container-fluid">
-            <Breadcrumb class="row justify-content-center mt-4" :crumbs="crumbs" @selected="selected" />
-            <!-- <h2 class="fw-semibold">
-                {{ crumbs }}
-            </h2> -->
-            <!-- Page Content -->
-            <div class="main">
-                <Suspense>
-                <router-view></router-view>
-                </Suspense>
-            </div>
-        </div>
-    </div>
+    <div v-show="layout === 'landing'" class="landing-bg h-100 bg-gradient-primary position-fixed w-100"></div>
+    <sidenav v-if="showSidenav" />
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+        <!-- nav -->
+        <navbar :class="[navClasses]" v-if="showNavbar" />
+
+        <router-view />
+
+        <!-- footer -->
+        <app-footer v-show="showFooter" />
+
+        <!-- Configurator -->
+        <configurator :toggle="toggleConfigurator" :class="[showConfig ? 'show' : '', hideConfigButton ? 'd-none' : '']"/>
+    </main>
 </template>
-
 <script setup>
-import {computed} from "vue";
-import { useRoute } from "vue-router";
-import AdminNavbar from "../components/includes/AdminNavbar.vue";
-import AdminSidebar from "../components/includes/AdminSidebar.vue";
-import Breadcrumb from "../components/includes/Breadcrumb.vue";
 
-const route = useRoute();
+import { computed } from "vue";
+import { useStore } from "vuex";
+import Sidenav from "../components/examples/Sidenav/index.vue";
+import Configurator from "../components/examples/Configurator.vue";
+import Navbar from "../components/examples/Navbars/Navbar.vue";
+import AppFooter from "../components/examples/Footer.vue";
 
-const crumbs = computed(() => {
-    let pathArray = route.path.split('/')
-      pathArray.shift()
-      const breadCrumbs = [{ "href": "/admin", "disabled": false, "text": "Dashboard" }]
-      // needed to handle the intermediary entries for nested vue routes
-      let breadcrumb = ''
-      let lastIndexFound = 0
-      for (let i = 0; i < pathArray.length; ++i) {
-        breadcrumb = `${breadcrumb}${'/'}${pathArray[i]}`
-        if (route.matched[i] &&
-          Object.hasOwnProperty.call(route.matched[i], 'meta') &&
-          Object.hasOwnProperty.call(route.matched[i].meta, 'breadCrumb')) {
-          breadCrumbs.push({
-            href: i !== 0 && pathArray[i - (i - lastIndexFound)]
-              ? '/' + pathArray[i - (i - lastIndexFound)] + breadcrumb
-              : breadcrumb,
-            disabled: i + 1 === pathArray.length,
-            text: route.matched[i].meta.breadCrumb || pathArray[i]
-          })
-          lastIndexFound = i
-          breadcrumb = ''
-        }
-      }
-      return breadCrumbs
+
+
+
+const store = useStore();
+const isNavFixed = computed(() => store.state.isNavFixed);
+const darkMode = computed(() => store.state.darkMode);
+const isAbsolute = computed(() => store.state.isAbsolute);
+const showSidenav = computed(() => store.state.showSidenav);
+const layout = computed(() => store.state.layout);
+const showNavbar = computed(() => store.state.showNavbar);
+const showFooter = computed(() => store.state.showFooter);
+const showConfig = computed(() => store.state.showConfig);
+const hideConfigButton = computed(() => store.state.hideConfigButton);
+const toggleConfigurator = () => store.commit("toggleConfigurator");
+
+const navClasses = computed(() => {
+    return {
+        "position-sticky bg-white left-auto top-2 z-index-sticky":
+            isNavFixed.value && !darkMode.value,
+        "position-sticky bg-default left-auto top-2 z-index-sticky":
+            isNavFixed.value && darkMode.value,
+        "position-absolute px-4 mx-0 w-100 z-index-2": isAbsolute.value,
+        "px-0 mx-4": !isAbsolute.value,
+    };
 });
-
-function selected(crumb) {
-    // console.log(crumb);
-}
 
 </script>
 
-<style scoped>
-.navbar-brand {
-    padding-top: .2rem;
-    padding-bottom: .2rem;
-    min-width: 250px;
-    max-width: 250px;
-    align-self: stretch;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    transition: all .3s linear;
-}
-
-.main-content, .sidebar {
-    height: calc(100vh - 56px);
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-.sidebar {
-    position: relative;
-    z-index: 100;
-    box-shadow: 1px 0 10px rgba(0, 0, 0, .1);
-    min-width: 250px;
-    max-width: 250px;
-    transition: all .3s linear;
-}
-
-.sidebar.mini {
-    min-width: 60px;
-    max-width: 60px;
-}
-
-.sidebar ul li a.active, .sidebar ul li a:hover {
-    color: #4a6cf7;
-    border-color: rgba(74, 108, 247, 0.15);
-    background: rgba(74, 108, 247, 0.1);
-}
-
-@media (max-width: 767.98px) {
-    .navbar-brand, .sidebar {
-        min-width: 60px;
-        max-width: 60px;
-    }
-
-    .navbar-brand {
-        min-width: 60px;
-        max-width: 60px;
-    }
-
-    .navbar-brand span {
-        min-width: 20px;
-        max-width: 20px;
-        font-weight: 900;
-        overflow: hidden;
-    }
-}
-</style>

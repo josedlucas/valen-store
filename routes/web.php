@@ -19,12 +19,20 @@ Route::post('login', [AuthenticatedSessionController::class, 'login']);
 Route::post('register', [AuthenticatedSessionController::class, 'register']);
 Route::post('logout', [AuthenticatedSessionController::class, 'logout']);
 
- 
+
 
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::view('/{any?}', 'main-view')
+Route::view('/', 'main-web');
+Route::view('/products', 'main-web');
+Route::view('/products/{id}', 'main-web');
+Route::view('/contact', 'main-web');
+Route::view('/contact', 'main-web');
+Route::view('/about', 'main-web');
+Route::view('/car', 'main-web');
+
+Route::view('/backoffice/{any?}', 'main-view')
     ->name('dashboard')
     ->where('any', '.*');

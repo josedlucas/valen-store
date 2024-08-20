@@ -77,7 +77,7 @@
 <script setup>
     import { onMounted, reactive } from "vue";
     import useCategories from "@/composables/categories";
-    import usePosts from "@/composables/posts";
+    import useProducts from "@/composables/products";
     import { useForm, useField, defineRule } from "vee-validate";
     import { required, min } from "../../validation/rules"
     defineRule('required', required)
@@ -96,7 +96,7 @@
     const { value: content } = useField('content', null, { initialValue: '' });
     const { value: category_id } = useField('category_id', null, { initialValue: '', label: 'category' });
     const { categories, getCategories } = useCategories()
-    const { storePost, validationErrors, isLoading } = usePosts()
+    const { storePost, validationErrors, isLoading } = useProducts()
     const post = reactive({
         title,
         content,

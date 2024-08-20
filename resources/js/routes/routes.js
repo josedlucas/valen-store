@@ -3,9 +3,10 @@ import {useAuthStore} from "@/store/auth";
 const AuthenticatedLayout = () => import('../layouts/Authenticated.vue')
 const GuestLayout = ()  => import('../layouts/Guest.vue');
 
-const PostsIndex  = ()  => import('../views/admin/posts/Index.vue');
-const PostsCreate  = ()  => import('../views/admin/posts/Create.vue');
-const PostsEdit  = ()  => import('../views/admin/posts/Edit.vue');
+const ValenWebLayout = ()  => import('../layouts/Valenweb.vue');
+const ProductsIndex  = ()  => import('../views/admin/products/Index.vue');
+const ProductsCreate  = ()  => import('../views/admin/products/Create.vue');
+const ProductsEdit  = ()  => import('../views/admin/products/Edit.vue');
 
 function requireLogin(to, from, next) {
     const auth = useAuthStore()
@@ -35,7 +36,7 @@ export default [
     {
         path: '/',
         // redirect: { name: 'login' },
-        component: GuestLayout,
+        component: ValenWebLayout,
         children: [
             {
                 path: '/',
@@ -43,20 +44,42 @@ export default [
                 component: () => import('../views/home/index.vue'),
             },
             {
-                path: 'posts',
-                name: 'public-posts.index',
-                component: () => import('../views/posts/index.vue'),
+                path: 'products',
+                name: 'public-products.index',
+                component: () => import('../views/products/index.vue'),
             },
             {
-                path: 'posts/:id',
-                name: 'public-posts.details',
-                component: () => import('../views/posts/details.vue'),
+                path: 'products/:id',
+                name: 'public-products.details',
+                component: () => import('../views/products/details.vue'),
             },
             {
                 path: 'category/:id',
-                name: 'category-posts.index',
-                component: () => import('../views/category/posts.vue'),
+                name: 'category-products.index',
+                component: () => import('../views/category/products.vue'),
             },
+            {
+                path: 'contact',
+                name: 'contact.index',
+                component: () => import('../views/contact/contact.vue'),
+            },
+            {
+                path: 'about',
+                name: 'about.index',
+                component: () => import('../views/about/about.vue'),
+            },
+            {
+                path: 'car',
+                name: 'car.index',
+                component: () => import('../views/car/car.vue'),
+            }
+        ]
+    },
+    {
+        path: '/backoffice',
+        // redirect: { name: 'login' },
+        component: GuestLayout,
+        children: [
             {
                 path: 'login',
                 name: 'auth.login',
@@ -80,12 +103,13 @@ export default [
                 name: 'auth.reset-password',
                 component: () => import('../views/auth/passwords/Reset.vue'),
                 beforeEnter: guest,
-            },
+            }
         ]
     },
     {
-        path: '/admin',
+        path: '/backoffice/admin',
         component: AuthenticatedLayout,
+        name: 'admin',
         // redirect: {
         //     name: 'admin.index'
         // },
@@ -104,21 +128,21 @@ export default [
                 meta: { breadCrumb: 'Profile' }
             },
             {
-                name: 'posts.index',
-                path: 'posts',
-                component: PostsIndex,
-                meta: { breadCrumb: 'Posts' }
+                name: 'products.index',
+                path: 'products',
+                component: ProductsIndex,
+                meta: { breadCrumb: 'Products' }
             },
             {
-                name: 'posts.create',
-                path: 'posts/create',
-                component: PostsCreate,
+                name: 'products.create',
+                path: 'products/create',
+                component: ProductsCreate,
                 meta: { breadCrumb: 'Add new post' }
             },
             {
-                name: 'posts.edit',
-                path: 'posts/edit/:id',
-                component: PostsEdit,
+                name: 'products.edit',
+                path: 'products/edit/:id',
+                component: ProductsEdit,
                 meta: { breadCrumb: 'Edit post' }
             },
             {

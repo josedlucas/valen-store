@@ -11,6 +11,7 @@ import ability from './services/ability';
 import vSelect from "vue-select";
 import useAuth from './composables/auth';
 import i18n from "./plugins/i18n";
+import store from "./store/index";
 
 import 'sweetalert2/dist/sweetalert2.min.css';
 import 'vue-select/dist/vue-select.css';
@@ -29,6 +30,7 @@ import ExampleComponent from './components/ExampleComponent.vue';
 app.component('example-component', ExampleComponent);
 
 app.use(pinia)
+app.use(store)
 app.use(router)
 app.use(VueSweetalert2)
 app.use(i18n)
