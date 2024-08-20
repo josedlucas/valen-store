@@ -1,0 +1,857 @@
+{
+  "DropZone.css": {
+    "file": "assets/DropZone-56e7961c.css",
+    "src": "DropZone.css"
+  },
+  "_DropZone-1ff0b9bb.js": {
+    "css": [
+      "assets/DropZone-56e7961c.css"
+    ],
+    "file": "assets/DropZone-1ff0b9bb.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_InputCounter-ae09d195.js": {
+    "file": "assets/InputCounter-ae09d195.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_carousel.es-a8fcd71d.js": {
+    "css": [
+      "assets/carousel-fdd153ee.css"
+    ],
+    "file": "assets/carousel.es-a8fcd71d.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_categories-99b3fbd8.js": {
+    "file": "assets/categories-99b3fbd8.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_permissions-edcbed5b.js": {
+    "file": "assets/permissions-edcbed5b.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_products-1010f7bf.js": {
+    "file": "assets/products-1010f7bf.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_roles-75b8c693.js": {
+    "file": "assets/roles-75b8c693.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_rules-00a576d7.js": {
+    "file": "assets/rules-00a576d7.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_users-e57ca7b7.js": {
+    "file": "assets/users-e57ca7b7.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "carousel.css": {
+    "file": "assets/carousel-fdd153ee.css",
+    "src": "carousel.css"
+  },
+  "resources/argon/css/nucleo-icons.css": {
+    "file": "assets/nucleo-icons-40f09e38.css",
+    "isEntry": true,
+    "src": "resources/argon/css/nucleo-icons.css"
+  },
+  "resources/argon/css/nucleo-svg.css": {
+    "file": "assets/nucleo-svg-89acc85b.css",
+    "isEntry": true,
+    "src": "resources/argon/css/nucleo-svg.css"
+  },
+  "resources/argon/fonts/nucleo-icons.eot": {
+    "file": "assets/nucleo-icons-f899f875.eot",
+    "src": "resources/argon/fonts/nucleo-icons.eot"
+  },
+  "resources/argon/fonts/nucleo-icons.svg": {
+    "file": "assets/nucleo-icons-be977573.svg",
+    "src": "resources/argon/fonts/nucleo-icons.svg"
+  },
+  "resources/argon/fonts/nucleo-icons.ttf": {
+    "file": "assets/nucleo-icons-655956cd.ttf",
+    "src": "resources/argon/fonts/nucleo-icons.ttf"
+  },
+  "resources/argon/fonts/nucleo-icons.woff": {
+    "file": "assets/nucleo-icons-daa807b2.woff",
+    "src": "resources/argon/fonts/nucleo-icons.woff"
+  },
+  "resources/argon/fonts/nucleo-icons.woff2": {
+    "file": "assets/nucleo-icons-3180896c.woff2",
+    "src": "resources/argon/fonts/nucleo-icons.woff2"
+  },
+  "resources/argon/img/icons/flags/BR.png": {
+    "file": "assets/BR-5f1d0f68.png",
+    "src": "resources/argon/img/icons/flags/BR.png"
+  },
+  "resources/argon/img/icons/flags/DE.png": {
+    "file": "assets/DE-eaf64e0a.png",
+    "src": "resources/argon/img/icons/flags/DE.png"
+  },
+  "resources/argon/img/icons/flags/GB.png": {
+    "file": "assets/GB-0c4aa592.png",
+    "src": "resources/argon/img/icons/flags/GB.png"
+  },
+  "resources/argon/img/icons/flags/US.png": {
+    "file": "assets/US-e4e02140.png",
+    "src": "resources/argon/img/icons/flags/US.png"
+  },
+  "resources/argon/img/logo-ct-dark.png": {
+    "file": "assets/logo-ct-6e418884.png",
+    "src": "resources/argon/img/logo-ct.png"
+  },
+  "resources/argon/img/logo-ct.png": {
+    "file": "assets/logo-ct-6e418884.png",
+    "src": "resources/argon/img/logo-ct.png"
+  },
+  "resources/argon/scss/argon-dashboard.scss": {
+    "file": "assets/argon-dashboard-f2bada0e.css",
+    "isEntry": true,
+    "src": "resources/argon/scss/argon-dashboard.scss"
+  },
+  "resources/js/app.css": {
+    "file": "assets/app-7a10c078.css",
+    "src": "resources/js/app.css"
+  },
+  "resources/js/app.js": {
+    "css": [
+      "assets/app-7a10c078.css"
+    ],
+    "dynamicImports": [
+      "resources/js/layouts/Authenticated.vue",
+      "resources/js/layouts/Guest.vue",
+      "resources/js/layouts/Valenweb.vue",
+      "resources/js/views/admin/products/Index.vue",
+      "resources/js/views/admin/products/Create.vue",
+      "resources/js/views/admin/products/Edit.vue",
+      "resources/js/views/home/index.vue",
+      "resources/js/views/products/index.vue",
+      "resources/js/views/products/details.vue",
+      "resources/js/views/category/products.vue",
+      "resources/js/views/contact/contact.vue",
+      "resources/js/views/about/about.vue",
+      "resources/js/views/car/car.vue",
+      "resources/js/views/login/Login.vue",
+      "resources/js/views/register/index.vue",
+      "resources/js/views/auth/passwords/Email.vue",
+      "resources/js/views/auth/passwords/Reset.vue",
+      "resources/js/views/admin/index.vue",
+      "resources/js/views/admin/profile/index.vue",
+      "resources/js/views/admin/categories/Index.vue",
+      "resources/js/views/admin/categories/Create.vue",
+      "resources/js/views/admin/categories/Edit.vue",
+      "resources/js/views/admin/permissions/Index.vue",
+      "resources/js/views/admin/permissions/Create.vue",
+      "resources/js/views/admin/permissions/Edit.vue",
+      "resources/js/views/admin/roles/Index.vue",
+      "resources/js/views/admin/roles/Create.vue",
+      "resources/js/views/admin/roles/Edit.vue",
+      "resources/js/views/admin/users/Index.vue",
+      "resources/js/views/admin/users/Create.vue",
+      "resources/js/views/admin/users/Edit.vue",
+      "resources/js/views/errors/404.vue",
+      "resources/js/lang/bn.json",
+      "resources/js/lang/en.json",
+      "resources/js/lang/es.json",
+      "resources/js/lang/fr.json",
+      "resources/js/lang/pt-BR.json",
+      "resources/js/lang/zh-CN.json"
+    ],
+    "file": "assets/app-0cb33df6.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  },
+  "resources/js/lang/bn.json": {
+    "file": "assets/bn-1b99d256.js",
+    "isDynamicEntry": true,
+    "src": "resources/js/lang/bn.json"
+  },
+  "resources/js/lang/en.json": {
+    "file": "assets/en-dab759ee.js",
+    "isDynamicEntry": true,
+    "src": "resources/js/lang/en.json"
+  },
+  "resources/js/lang/es.json": {
+    "file": "assets/es-20b74080.js",
+    "isDynamicEntry": true,
+    "src": "resources/js/lang/es.json"
+  },
+  "resources/js/lang/fr.json": {
+    "file": "assets/fr-6b68fe7b.js",
+    "isDynamicEntry": true,
+    "src": "resources/js/lang/fr.json"
+  },
+  "resources/js/lang/pt-BR.json": {
+    "file": "assets/pt-BR-2c88ad7d.js",
+    "isDynamicEntry": true,
+    "src": "resources/js/lang/pt-BR.json"
+  },
+  "resources/js/lang/zh-CN.json": {
+    "file": "assets/zh-CN-9ab34ad3.js",
+    "isDynamicEntry": true,
+    "src": "resources/js/lang/zh-CN.json"
+  },
+  "resources/js/layouts/Authenticated.vue": {
+    "assets": [
+      "assets/logo-ct-6e418884.png"
+    ],
+    "file": "assets/Authenticated-ccd4c4a2.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/layouts/Authenticated.vue"
+  },
+  "resources/js/layouts/Guest.vue": {
+    "file": "assets/Guest-0d5dcb19.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/layouts/Guest.vue"
+  },
+  "resources/js/layouts/Valenweb.css": {
+    "file": "assets/Valenweb-a046306e.css",
+    "src": "resources/js/layouts/Valenweb.css"
+  },
+  "resources/js/layouts/Valenweb.vue": {
+    "assets": [
+      "assets/top-header-bf619fac.svg",
+      "assets/top-header-m-061b07ee.svg",
+      "assets/logo-8fcc0b6a.svg",
+      "assets/car-15ac27c2.svg",
+      "assets/plus-14aabdfe.svg",
+      "assets/lupa-2c73f810.svg",
+      "assets/img-d8eefbfc.png",
+      "assets/img_1-a446f31b.png",
+      "assets/img_2-c215d11e.png",
+      "assets/email-57855a5f.png",
+      "assets/call-1c5777c1.png",
+      "assets/instagram-a38e6128.png"
+    ],
+    "css": [
+      "assets/Valenweb-a046306e.css"
+    ],
+    "file": "assets/Valenweb-f21526e0.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/layouts/Valenweb.vue"
+  },
+  "resources/js/views/about/about.vue": {
+    "assets": [
+      "assets/img-b1750c8d.png",
+      "assets/img_m-1c1ffcde.png",
+      "assets/background-e80d7340.svg",
+      "assets/background-m-1c5e10c9.svg",
+      "assets/img-fe466d3b.png",
+      "assets/slider-9-95cc1dc3.png",
+      "assets/slider-8-a467f4a8.png",
+      "assets/slider-7-064a43fe.png",
+      "assets/slider-6-99ddab02.png",
+      "assets/slider-3-b4341279.png",
+      "assets/slider-5-88927c99.png",
+      "assets/slider-4-7c868434.png",
+      "assets/slider-2-2396a3ec.png",
+      "assets/slider-1-6d2d49ab.png",
+      "assets/background-e25954b4.svg",
+      "assets/background-m-a59c217c.svg",
+      "assets/img-6c9ec1cf.png"
+    ],
+    "file": "assets/about-fde426a8.js",
+    "imports": [
+      "resources/js/app.js",
+      "_carousel.es-a8fcd71d.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/about/about.vue"
+  },
+  "resources/js/views/admin/categories/Create.vue": {
+    "file": "assets/Create-2ae708eb.js",
+    "imports": [
+      "resources/js/app.js",
+      "_categories-99b3fbd8.js",
+      "_rules-00a576d7.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/categories/Create.vue"
+  },
+  "resources/js/views/admin/categories/Edit.vue": {
+    "file": "assets/Edit-98215f0e.js",
+    "imports": [
+      "resources/js/app.js",
+      "_categories-99b3fbd8.js",
+      "_rules-00a576d7.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/categories/Edit.vue"
+  },
+  "resources/js/views/admin/categories/Index.vue": {
+    "file": "assets/Index-743a9335.js",
+    "imports": [
+      "resources/js/app.js",
+      "_categories-99b3fbd8.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/categories/Index.vue"
+  },
+  "resources/js/views/admin/index.vue": {
+    "assets": [
+      "assets/US-e4e02140.png",
+      "assets/DE-eaf64e0a.png",
+      "assets/GB-0c4aa592.png",
+      "assets/BR-5f1d0f68.png"
+    ],
+    "file": "assets/index-10e14d9d.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/index.vue"
+  },
+  "resources/js/views/admin/permissions/Create.vue": {
+    "file": "assets/Create-113a939b.js",
+    "imports": [
+      "resources/js/app.js",
+      "_permissions-edcbed5b.js",
+      "_rules-00a576d7.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/permissions/Create.vue"
+  },
+  "resources/js/views/admin/permissions/Edit.vue": {
+    "file": "assets/Edit-47a780fa.js",
+    "imports": [
+      "resources/js/app.js",
+      "_permissions-edcbed5b.js",
+      "_rules-00a576d7.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/permissions/Edit.vue"
+  },
+  "resources/js/views/admin/permissions/Index.vue": {
+    "file": "assets/Index-3c7247b6.js",
+    "imports": [
+      "resources/js/app.js",
+      "_permissions-edcbed5b.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/permissions/Index.vue"
+  },
+  "resources/js/views/admin/products/Create.vue": {
+    "file": "assets/Create-53255696.js",
+    "imports": [
+      "resources/js/app.js",
+      "_DropZone-1ff0b9bb.js",
+      "_categories-99b3fbd8.js",
+      "_products-1010f7bf.js",
+      "_rules-00a576d7.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/products/Create.vue"
+  },
+  "resources/js/views/admin/products/Edit.vue": {
+    "file": "assets/Edit-88372023.js",
+    "imports": [
+      "resources/js/app.js",
+      "_categories-99b3fbd8.js",
+      "_products-1010f7bf.js",
+      "_rules-00a576d7.js",
+      "_DropZone-1ff0b9bb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/products/Edit.vue"
+  },
+  "resources/js/views/admin/products/Index.vue": {
+    "file": "assets/Index-201443fd.js",
+    "imports": [
+      "resources/js/app.js",
+      "_products-1010f7bf.js",
+      "_categories-99b3fbd8.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/products/Index.vue"
+  },
+  "resources/js/views/admin/profile/index.vue": {
+    "file": "assets/index-6dfe534b.js",
+    "imports": [
+      "resources/js/app.js",
+      "_rules-00a576d7.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/profile/index.vue"
+  },
+  "resources/js/views/admin/roles/Create.vue": {
+    "file": "assets/Create-d4fcc014.js",
+    "imports": [
+      "resources/js/app.js",
+      "_roles-75b8c693.js",
+      "_rules-00a576d7.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/roles/Create.vue"
+  },
+  "resources/js/views/admin/roles/Edit.css": {
+    "file": "assets/Edit-b305c792.css",
+    "src": "resources/js/views/admin/roles/Edit.css"
+  },
+  "resources/js/views/admin/roles/Edit.vue": {
+    "css": [
+      "assets/Edit-b305c792.css"
+    ],
+    "file": "assets/Edit-0f680579.js",
+    "imports": [
+      "resources/js/app.js",
+      "_roles-75b8c693.js",
+      "_rules-00a576d7.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/roles/Edit.vue"
+  },
+  "resources/js/views/admin/roles/Index.vue": {
+    "file": "assets/Index-d98884d2.js",
+    "imports": [
+      "resources/js/app.js",
+      "_roles-75b8c693.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/roles/Index.vue"
+  },
+  "resources/js/views/admin/users/Create.vue": {
+    "file": "assets/Create-4bc4b011.js",
+    "imports": [
+      "resources/js/app.js",
+      "_roles-75b8c693.js",
+      "_users-e57ca7b7.js",
+      "_rules-00a576d7.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/users/Create.vue"
+  },
+  "resources/js/views/admin/users/Edit.vue": {
+    "file": "assets/Edit-c7be1279.js",
+    "imports": [
+      "resources/js/app.js",
+      "_roles-75b8c693.js",
+      "_users-e57ca7b7.js",
+      "_rules-00a576d7.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/users/Edit.vue"
+  },
+  "resources/js/views/admin/users/Index.vue": {
+    "file": "assets/Index-75d89004.js",
+    "imports": [
+      "resources/js/app.js",
+      "_users-e57ca7b7.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/users/Index.vue"
+  },
+  "resources/js/views/auth/passwords/Email.vue": {
+    "file": "assets/Email-30f1ea69.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/auth/passwords/Email.vue"
+  },
+  "resources/js/views/auth/passwords/Reset.vue": {
+    "file": "assets/Reset-cd6d6573.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/auth/passwords/Reset.vue"
+  },
+  "resources/js/views/car/car.vue": {
+    "assets": [
+      "assets/Camisa-86d61020.jpeg"
+    ],
+    "file": "assets/car-7d3e3f4d.js",
+    "imports": [
+      "resources/js/app.js",
+      "_InputCounter-ae09d195.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/car/car.vue"
+  },
+  "resources/js/views/category/products.vue": {
+    "file": "assets/products-4e2809a6.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/category/products.vue"
+  },
+  "resources/js/views/contact/contact.vue": {
+    "assets": [
+      "assets/background-feb35c21.svg",
+      "assets/background-m-cf5342cf.svg",
+      "assets/call-2-585729e6.svg",
+      "assets/email-2-7017f915.svg",
+      "assets/address-7b14da33.svg"
+    ],
+    "file": "assets/contact-6df6514a.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/contact/contact.vue"
+  },
+  "resources/js/views/errors/404.vue": {
+    "file": "assets/404-d2313d24.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/errors/404.vue"
+  },
+  "resources/js/views/home/index.vue": {
+    "assets": [
+      "assets/img-40805378.png",
+      "assets/img_m-307debb8.png",
+      "assets/background-5b0a8409.svg",
+      "assets/img-55463eb7.png",
+      "assets/img_m-54998d28.png",
+      "assets/background-69d0ce36.svg",
+      "assets/background-m-216f5710.svg",
+      "assets/comillas-509d755d.svg",
+      "assets/raya-4904e607.svg",
+      "assets/icono-chaleco-13180ed1.svg",
+      "assets/icono-bota-8d65d7cb.svg",
+      "assets/icono-lente-e10d2754.svg",
+      "assets/img-2b4c8b76.png",
+      "assets/img_1-3e821d6a.png",
+      "assets/img_2-4233bd83.png",
+      "assets/img-8e6845b1.png",
+      "assets/img-8a0cc08e.png",
+      "assets/img_1-2444db4a.png",
+      "assets/img_2-90370612.png",
+      "assets/img_3-1831321e.png",
+      "assets/img_4-96c706f5.png",
+      "assets/img_5-46227af3.png",
+      "assets/img_6-17eb6b06.png"
+    ],
+    "file": "assets/index-433a930e.js",
+    "imports": [
+      "resources/js/app.js",
+      "_carousel.es-a8fcd71d.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/home/index.vue"
+  },
+  "resources/js/views/login/Login.vue": {
+    "file": "assets/Login-b6e4d4ff.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/login/Login.vue"
+  },
+  "resources/js/views/products/details.css": {
+    "file": "assets/details-ecfa3105.css",
+    "src": "resources/js/views/products/details.css"
+  },
+  "resources/js/views/products/details.vue": {
+    "assets": [
+      "assets/regla-15535c31.svg"
+    ],
+    "css": [
+      "assets/details-ecfa3105.css"
+    ],
+    "file": "assets/details-604b527b.js",
+    "imports": [
+      "resources/js/app.js",
+      "_carousel.es-a8fcd71d.js",
+      "_InputCounter-ae09d195.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/products/details.vue"
+  },
+  "resources/js/views/products/index.vue": {
+    "file": "assets/index-54bd2942.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/products/index.vue"
+  },
+  "resources/js/views/register/index.vue": {
+    "file": "assets/index-640e5ed6.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/register/index.vue"
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app-e64b882a.css",
+    "isEntry": true,
+    "src": "resources/sass/app.scss"
+  },
+  "resources/valenweb/assets/images/about-us/section1/img.png": {
+    "file": "assets/img-b1750c8d.png",
+    "src": "resources/valenweb/assets/images/about-us/section1/img.png"
+  },
+  "resources/valenweb/assets/images/about-us/section1/img_m.png": {
+    "file": "assets/img_m-1c1ffcde.png",
+    "src": "resources/valenweb/assets/images/about-us/section1/img_m.png"
+  },
+  "resources/valenweb/assets/images/about-us/section2/background-m.svg": {
+    "file": "assets/background-m-1c5e10c9.svg",
+    "src": "resources/valenweb/assets/images/about-us/section2/background-m.svg"
+  },
+  "resources/valenweb/assets/images/about-us/section2/background.svg": {
+    "file": "assets/background-e80d7340.svg",
+    "src": "resources/valenweb/assets/images/about-us/section2/background.svg"
+  },
+  "resources/valenweb/assets/images/about-us/section2/img.png": {
+    "file": "assets/img-fe466d3b.png",
+    "src": "resources/valenweb/assets/images/about-us/section2/img.png"
+  },
+  "resources/valenweb/assets/images/about-us/section3/slider/slider-1.png": {
+    "file": "assets/slider-1-6d2d49ab.png",
+    "src": "resources/valenweb/assets/images/about-us/section3/slider/slider-1.png"
+  },
+  "resources/valenweb/assets/images/about-us/section3/slider/slider-2.png": {
+    "file": "assets/slider-2-2396a3ec.png",
+    "src": "resources/valenweb/assets/images/about-us/section3/slider/slider-2.png"
+  },
+  "resources/valenweb/assets/images/about-us/section3/slider/slider-3.png": {
+    "file": "assets/slider-3-b4341279.png",
+    "src": "resources/valenweb/assets/images/about-us/section3/slider/slider-3.png"
+  },
+  "resources/valenweb/assets/images/about-us/section3/slider/slider-4.png": {
+    "file": "assets/slider-4-7c868434.png",
+    "src": "resources/valenweb/assets/images/about-us/section3/slider/slider-4.png"
+  },
+  "resources/valenweb/assets/images/about-us/section3/slider/slider-5.png": {
+    "file": "assets/slider-5-88927c99.png",
+    "src": "resources/valenweb/assets/images/about-us/section3/slider/slider-5.png"
+  },
+  "resources/valenweb/assets/images/about-us/section3/slider/slider-6.png": {
+    "file": "assets/slider-6-99ddab02.png",
+    "src": "resources/valenweb/assets/images/about-us/section3/slider/slider-6.png"
+  },
+  "resources/valenweb/assets/images/about-us/section3/slider/slider-7.png": {
+    "file": "assets/slider-7-064a43fe.png",
+    "src": "resources/valenweb/assets/images/about-us/section3/slider/slider-7.png"
+  },
+  "resources/valenweb/assets/images/about-us/section3/slider/slider-8.png": {
+    "file": "assets/slider-8-a467f4a8.png",
+    "src": "resources/valenweb/assets/images/about-us/section3/slider/slider-8.png"
+  },
+  "resources/valenweb/assets/images/about-us/section3/slider/slider-9.png": {
+    "file": "assets/slider-9-95cc1dc3.png",
+    "src": "resources/valenweb/assets/images/about-us/section3/slider/slider-9.png"
+  },
+  "resources/valenweb/assets/images/about-us/section4/background-m.svg": {
+    "file": "assets/background-m-a59c217c.svg",
+    "src": "resources/valenweb/assets/images/about-us/section4/background-m.svg"
+  },
+  "resources/valenweb/assets/images/about-us/section4/background.svg": {
+    "file": "assets/background-e25954b4.svg",
+    "src": "resources/valenweb/assets/images/about-us/section4/background.svg"
+  },
+  "resources/valenweb/assets/images/about-us/section4/img.png": {
+    "file": "assets/img-6c9ec1cf.png",
+    "src": "resources/valenweb/assets/images/about-us/section4/img.png"
+  },
+  "resources/valenweb/assets/images/contact/section1/background-m.svg": {
+    "file": "assets/background-m-cf5342cf.svg",
+    "src": "resources/valenweb/assets/images/contact/section1/background-m.svg"
+  },
+  "resources/valenweb/assets/images/contact/section1/background.svg": {
+    "file": "assets/background-feb35c21.svg",
+    "src": "resources/valenweb/assets/images/contact/section1/background.svg"
+  },
+  "resources/valenweb/assets/images/header/mega-menu/img.png": {
+    "file": "assets/img-d8eefbfc.png",
+    "src": "resources/valenweb/assets/images/header/mega-menu/img.png"
+  },
+  "resources/valenweb/assets/images/header/mega-menu/img_1.png": {
+    "file": "assets/img_1-a446f31b.png",
+    "src": "resources/valenweb/assets/images/header/mega-menu/img_1.png"
+  },
+  "resources/valenweb/assets/images/header/mega-menu/img_2.png": {
+    "file": "assets/img_2-c215d11e.png",
+    "src": "resources/valenweb/assets/images/header/mega-menu/img_2.png"
+  },
+  "resources/valenweb/assets/images/header/top-header-m.svg": {
+    "file": "assets/top-header-m-061b07ee.svg",
+    "src": "resources/valenweb/assets/images/header/top-header-m.svg"
+  },
+  "resources/valenweb/assets/images/header/top-header.svg": {
+    "file": "assets/top-header-bf619fac.svg",
+    "src": "resources/valenweb/assets/images/header/top-header.svg"
+  },
+  "resources/valenweb/assets/images/home/section1/img.png": {
+    "file": "assets/img-40805378.png",
+    "src": "resources/valenweb/assets/images/home/section1/img.png"
+  },
+  "resources/valenweb/assets/images/home/section1/img_m.png": {
+    "file": "assets/img_m-307debb8.png",
+    "src": "resources/valenweb/assets/images/home/section1/img_m.png"
+  },
+  "resources/valenweb/assets/images/home/section2/background.svg": {
+    "file": "assets/background-5b0a8409.svg",
+    "src": "resources/valenweb/assets/images/home/section2/background.svg"
+  },
+  "resources/valenweb/assets/images/home/section2/icono-bota.svg": {
+    "file": "assets/icono-bota-8d65d7cb.svg",
+    "src": "resources/valenweb/assets/images/home/section2/icono-bota.svg"
+  },
+  "resources/valenweb/assets/images/home/section2/icono-chaleco.svg": {
+    "file": "assets/icono-chaleco-13180ed1.svg",
+    "src": "resources/valenweb/assets/images/home/section2/icono-chaleco.svg"
+  },
+  "resources/valenweb/assets/images/home/section2/icono-lente.svg": {
+    "file": "assets/icono-lente-e10d2754.svg",
+    "src": "resources/valenweb/assets/images/home/section2/icono-lente.svg"
+  },
+  "resources/valenweb/assets/images/home/section2/img.png": {
+    "file": "assets/img-2b4c8b76.png",
+    "src": "resources/valenweb/assets/images/home/section2/img.png"
+  },
+  "resources/valenweb/assets/images/home/section2/img_1.png": {
+    "file": "assets/img_1-3e821d6a.png",
+    "src": "resources/valenweb/assets/images/home/section2/img_1.png"
+  },
+  "resources/valenweb/assets/images/home/section2/img_2.png": {
+    "file": "assets/img_2-4233bd83.png",
+    "src": "resources/valenweb/assets/images/home/section2/img_2.png"
+  },
+  "resources/valenweb/assets/images/home/section3/img.png": {
+    "file": "assets/img-55463eb7.png",
+    "src": "resources/valenweb/assets/images/home/section3/img.png"
+  },
+  "resources/valenweb/assets/images/home/section3/img_m.png": {
+    "file": "assets/img_m-54998d28.png",
+    "src": "resources/valenweb/assets/images/home/section3/img_m.png"
+  },
+  "resources/valenweb/assets/images/home/section4/background-m.svg": {
+    "file": "assets/background-m-216f5710.svg",
+    "src": "resources/valenweb/assets/images/home/section4/background-m.svg"
+  },
+  "resources/valenweb/assets/images/home/section4/background.svg": {
+    "file": "assets/background-69d0ce36.svg",
+    "src": "resources/valenweb/assets/images/home/section4/background.svg"
+  },
+  "resources/valenweb/assets/images/home/section4/comillas.svg": {
+    "file": "assets/comillas-509d755d.svg",
+    "src": "resources/valenweb/assets/images/home/section4/comillas.svg"
+  },
+  "resources/valenweb/assets/images/home/section4/slider/img.png": {
+    "file": "assets/img-8e6845b1.png",
+    "src": "resources/valenweb/assets/images/home/section4/slider/img.png"
+  },
+  "resources/valenweb/assets/images/home/section5/raya.svg": {
+    "file": "assets/raya-4904e607.svg",
+    "src": "resources/valenweb/assets/images/home/section5/raya.svg"
+  },
+  "resources/valenweb/assets/images/home/section5/slider/img.png": {
+    "file": "assets/img-8a0cc08e.png",
+    "src": "resources/valenweb/assets/images/home/section5/slider/img.png"
+  },
+  "resources/valenweb/assets/images/home/section5/slider/img_1.png": {
+    "file": "assets/img_1-2444db4a.png",
+    "src": "resources/valenweb/assets/images/home/section5/slider/img_1.png"
+  },
+  "resources/valenweb/assets/images/home/section5/slider/img_2.png": {
+    "file": "assets/img_2-90370612.png",
+    "src": "resources/valenweb/assets/images/home/section5/slider/img_2.png"
+  },
+  "resources/valenweb/assets/images/home/section5/slider/img_3.png": {
+    "file": "assets/img_3-1831321e.png",
+    "src": "resources/valenweb/assets/images/home/section5/slider/img_3.png"
+  },
+  "resources/valenweb/assets/images/home/section5/slider/img_4.png": {
+    "file": "assets/img_4-96c706f5.png",
+    "src": "resources/valenweb/assets/images/home/section5/slider/img_4.png"
+  },
+  "resources/valenweb/assets/images/home/section5/slider/img_5.png": {
+    "file": "assets/img_5-46227af3.png",
+    "src": "resources/valenweb/assets/images/home/section5/slider/img_5.png"
+  },
+  "resources/valenweb/assets/images/home/section5/slider/img_6.png": {
+    "file": "assets/img_6-17eb6b06.png",
+    "src": "resources/valenweb/assets/images/home/section5/slider/img_6.png"
+  },
+  "resources/valenweb/assets/images/icons/address.svg": {
+    "file": "assets/address-7b14da33.svg",
+    "src": "resources/valenweb/assets/images/icons/address.svg"
+  },
+  "resources/valenweb/assets/images/icons/call-2.svg": {
+    "file": "assets/call-2-585729e6.svg",
+    "src": "resources/valenweb/assets/images/icons/call-2.svg"
+  },
+  "resources/valenweb/assets/images/icons/call.png": {
+    "file": "assets/call-1c5777c1.png",
+    "src": "resources/valenweb/assets/images/icons/call.png"
+  },
+  "resources/valenweb/assets/images/icons/car.svg": {
+    "file": "assets/car-15ac27c2.svg",
+    "src": "resources/valenweb/assets/images/icons/car.svg"
+  },
+  "resources/valenweb/assets/images/icons/email-2.svg": {
+    "file": "assets/email-2-7017f915.svg",
+    "src": "resources/valenweb/assets/images/icons/email-2.svg"
+  },
+  "resources/valenweb/assets/images/icons/email.png": {
+    "file": "assets/email-57855a5f.png",
+    "src": "resources/valenweb/assets/images/icons/email.png"
+  },
+  "resources/valenweb/assets/images/icons/instagram.png": {
+    "file": "assets/instagram-a38e6128.png",
+    "src": "resources/valenweb/assets/images/icons/instagram.png"
+  },
+  "resources/valenweb/assets/images/icons/lupa.svg": {
+    "file": "assets/lupa-2c73f810.svg",
+    "src": "resources/valenweb/assets/images/icons/lupa.svg"
+  },
+  "resources/valenweb/assets/images/icons/plus.svg": {
+    "file": "assets/plus-14aabdfe.svg",
+    "src": "resources/valenweb/assets/images/icons/plus.svg"
+  },
+  "resources/valenweb/assets/images/icons/regla.svg": {
+    "file": "assets/regla-15535c31.svg",
+    "src": "resources/valenweb/assets/images/icons/regla.svg"
+  },
+  "resources/valenweb/assets/images/logo/logo.svg": {
+    "file": "assets/logo-8fcc0b6a.svg",
+    "src": "resources/valenweb/assets/images/logo/logo.svg"
+  },
+  "resources/valenweb/assets/images/products/Camisa.jpeg": {
+    "file": "assets/Camisa-86d61020.jpeg",
+    "src": "resources/valenweb/assets/images/products/Camisa.jpeg"
+  },
+  "resources/valenweb/scss/bootstrap-valen.scss": {
+    "file": "assets/bootstrap-valen-21a11d89.css",
+    "isEntry": true,
+    "src": "resources/valenweb/scss/bootstrap-valen.scss"
+  },
+  "resources/valenweb/scss/style.scss": {
+    "file": "assets/style-164a63a4.css",
+    "isEntry": true,
+    "src": "resources/valenweb/scss/style.scss"
+  }
+}
