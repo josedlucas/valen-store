@@ -21,7 +21,7 @@
                         </div>
                         <!-- Buttons -->
                         <div class="mt-4">
-                            <button :disabled="isLoading" class="btn btn-primary">
+                            <button :disabled="isLoading" class="btn btn-success">
                                 <div v-show="isLoading" class=""></div>
                                 <span v-if="isLoading">Processing...</span>
                                 <span v-else>Update</span>

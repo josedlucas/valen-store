@@ -31,6 +31,16 @@ class Product extends Model implements HasMedia
         return $this->belongsToMany(Category::class, 'category_product');
     }
 
+    public function colors()
+    {
+        return $this->belongsToMany(Color::class, 'color_product');
+    }
+
+    public function sizes()
+    {
+        return $this->belongsToMany(Size::class, 'size_product');
+    }
+
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('images')

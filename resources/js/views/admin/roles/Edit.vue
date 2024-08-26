@@ -10,13 +10,13 @@
                                 Title
                             </label>
                             <div class="form-outline w-25">
-                                <input v-model="role.name" id="post-title" type="text" class="form-control">
+                                <input v-model="role.name" id="post-title" type="text" class="form-control" />
                             </div>
                             <div class="text-danger mt-1">
                                 {{ errors.name }}
                             </div>
                             <div class="text-danger mt-1">
-                                <div v-for="message in validationErrors?.name">
+                                <div v-for="(message, index) in validationErrors?.name" :key="index">
                                     {{ message }}
                                 </div>
                             </div>
@@ -26,12 +26,12 @@
                             rightLabel="Current Permissions"
                             :leftData="availablePermissions"
                             :rightData="currentPermissions"
-                            v-on:onChangeList="onChangeList"
-                        ></DualListBox>
+                            @onChangeList="onChangeList"
+                        />
                         <!-- Buttons -->
                         <div class="mt-4">
-                            <button :disabled="isLoading" class="btn btn-primary">
-                                <div v-show="isLoading" class=""></div>
+                            <button :disabled="isLoading" class="btn btn-success">
+                                <div v-if="isLoading" class="spinner-border spinner-border-sm" role="status"></div>
                                 <span v-if="isLoading">Processing...</span>
                                 <span v-else>Update</span>
                             </button>
@@ -42,82 +42,68 @@
         </div>
     </div>
 </template>
-<script async setup>
-import {isProxy, isRef, unref, onBeforeMount, onMounted, reactive, toRaw, toRefs, watchEffect, ref, markRaw} from "vue";
-import {useRoute} from "vue-router";
-import useRoles from "@/composables/roles";
-import {useForm, useField, defineRule} from "vee-validate";
-import {required, min} from "@/validation/rules"
+
+<script setup>
+import { ref, reactive, onMounted, watchEffect } from "vue";
+import { useRoute } from "vue-router";
+import { useForm, useField, defineRule } from "vee-validate";
+import axios from "axios"; // Asegúrate de que axios esté importado
 import DualListBox from "../../../components/DualListBox.vue";
-import usePermissions from "@/composables/permissions";
+import useRoles from "@/composables/roles";
+import { required, min } from "@/validation/rules";
 
-
-defineRule('required', required)
+defineRule('required', required);
 defineRule('min', min);
 
-// Define a validation schema
+// Definir esquema de validación
 const schema = {
     name: 'required|min:3'
-}
-// Create a form context with the validation schema
-const {validate, errors, resetForm} = useForm({validationSchema: schema})
-// Define actual fields for validation
-const {value: name} = useField('name', null, {initialValue: ''});
-const {
-    role: postData,
-    updateRolePermissions,
-    getRole,
-    updateRole,
-    validationErrors,
-    isLoading
-} = useRoles()
-// const {allPermission, getAllPermissions} = usePermissions()
-const role = reactive({
-    name
-})
-const route = useRoute()
+};
 
-let response = await axios.get('/api/permissions/')
-let allPermission = response.data.data;
+const { validate, errors } = useForm({ validationSchema: schema });
+const { value: name } = useField('name', null, { initialValue: '' });
 
-response = await axios.get('/api/role-permissions/' + route.params.id)
-let rolePermissionList = response.data.data;
+const { role: postData, updateRolePermissions, getRole, validationErrors, isLoading } = useRoles();
+const route = useRoute();
 
-let diffPermission = getDifference(allPermission, rolePermissionList);
+const role = reactive({ name });
+const availablePermissions = ref([]);
+const currentPermissions = ref([]);
 
-let availablePermissions = ref(diffPermission)
-let currentPermissions = ref(rolePermissionList)
+onMounted(async () => {
+    const response = await axios.get('/api/permissions/');
+    const allPermission = response.data.data;
 
+    const rolePermissionResponse = await axios.get(`/api/role-permissions/${route.params.id}`);
+    const rolePermissionList = rolePermissionResponse.data.data;
+
+    availablePermissions.value = getDifference(allPermission, rolePermissionList);
+    currentPermissions.value = rolePermissionList;
+
+    getRole(route.params.id);
+});
+
+watchEffect(() => {
+    role.id = postData.value?.id;
+    role.name = postData.value?.name;
+});
 
 function submitForm() {
-    validate().then(form => {
+    validate().then((form) => {
         if (form.valid) {
-            let permissions = currentPermissions.value.map(a => a.id);
-            updateRolePermissions(role, permissions)
-            //  updateRole(role)
+            const permissions = currentPermissions.value.map(a => a.id);
+            updateRolePermissions(role, permissions);
         }
-    })
+    });
 }
 
 function onChangeList(data) {
-    //console.log(data)
+    // Manejar la lista actualizada
 }
-
-onMounted(() => {
-    getRole(route.params.id)
-})
-// https://vuejs.org/api/reactivity-core.html#watcheffect
-watchEffect(() => {
-    role.id = postData.value.id
-    role.name = postData.value.name
-})
-
 
 function getDifference(array1, array2) {
     return array1.filter(object1 => {
-        return !array2.some(object2 => {
-            return object1.id === object2.id;
-        });
+        return !array2.some(object2 => object1.id === object2.id);
     });
 }
 </script>

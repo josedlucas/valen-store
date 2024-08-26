@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Resources\CategoryResource;
 use App\Models\Category;
+use App\Models\CategoryGrouper;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -35,14 +36,18 @@ class CategoryController extends Controller
                 });
             })
             ->orderBy($orderColumn, $orderDirection)
-            ->paginate(50);
+            ->paginate(10);
         return CategoryResource::collection($categories);
     }
 
     public function store(StoreCategoryRequest $request)
     {
         $this->authorize('category-create');
+
         $category = Category::create($request->validated());
+
+        $categorygrouper = CategoryGrouper::find($request->categorygrouper);
+        $category->categoryGrouper()->attach($categorygrouper);
 
         return new CategoryResource($category);
     }
@@ -57,7 +62,6 @@ class CategoryController extends Controller
     {
         $this->authorize('category-edit');
         $category->update($request->validated());
-
         return new CategoryResource($category);
     }
 
@@ -69,8 +73,22 @@ class CategoryController extends Controller
         return response()->noContent();
     }
 
-    public function getList()
+    public function getList(Request $request)
     {
-        return CategoryResource::collection(Category::all());
+        $categories = Category::select('*');
+
+        if($request->input('grouper')){
+            $categories = $categories->whereHas('categoryGrouper', function ($query) {
+                $query->where('id', request('grouper'));
+            });
+        }
+
+        if($request->input('category')){
+            $categories = $categories->where('id', request('category'));
+        }
+
+        $categories = $categories->get();
+
+        return CategoryResource::collection($categories);
     }
 }

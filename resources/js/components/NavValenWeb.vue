@@ -52,12 +52,13 @@
             <div class="col-md-4 d-none d-md-block">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown ktm-mega-menu ms-lg-4 d-none d-md-block">
-                        <a class="nav-link dropdown-toggle d-flex align-items-center" @click="toggleDropdown" :data-bs-toggle="dropdownClass" data-bs-toggle="dropdownClass">
+                        <SearchValen v-if="viewSarch" @close="toggleSearchEmit" class="animate" />
+                        <a v-if="!viewSarch" class="nav-link dropdown-toggle d-flex align-items-center" @click="toggleDropdown" :data-bs-toggle="dropdownClass" data-bs-toggle="dropdownClass">
                             <img class="me-2" src="../../valenweb/assets/images/icons/plus.svg" alt="Lupa" /> CATÁLOGO DE PRODUCTOS
                         </a>
                     </li>
-                    <li class="nav-item ms-lg-4 d-flex align-items-center raya-s-header">
-                        <a class="nav-link" href="./special-orders"></a>
+                    <li class="nav-item ms-lg-4 d-flex align-items-center raya-s-header cursor-pointer" @click="toggleSearch">
+                        <div class="nav-link" href="./special-orders"></div>
                         <img src="../../valenweb/assets/images/icons/lupa.svg" alt="Lupa" />
                     </li>
                     <li class="nav-item ms-lg-4 d-flex align-items-center">
@@ -81,11 +82,11 @@
                             </p>
                         </div>
                         <ul class="ms-md-6 ps-md-3">
-                            <li class="mega-menu-item"><a class="dropdown-item fw-lighter" href="./pantalon-clasico"> ZAPATO</a></li>
-                            <li class="mega-menu-item"><a class="dropdown-item fw-lighter" href="./pantalon-cargo"> ZAPATILLA</a></li>
-                            <li class="mega-menu-item"><a class="dropdown-item fw-lighter" href="./pantalon-cargo-tres-estrellas"> BOTIN</a></li>
-                            <li class="mega-menu-item"><a class="dropdown-item fw-lighter" href="./camisa-de-jean"> BOTA</a></li>
-                            <li class="mega-menu-item"><a class="dropdown-item fw-lighter" href="./camisa-de-jean"> BORCEGUI</a></li>
+                            <div v-for="calzadoSeguridad in categoryList">
+                                <li class="mega-menu-item" v-if="calzadoSeguridad.category_grouper_id.id === 4" >
+                                    <RouterLink  to=""  @click="redirect({ name: 'public-products.index', query: { grouper: calzadoSeguridad.category_grouper_id.id, category: calzadoSeguridad.id }})" class="dropdown-item fw-lighter">{{ calzadoSeguridad.name }}</RouterLink>
+                                </li>
+                            </div>
                         </ul>
                     </div>
                 </div>
@@ -99,11 +100,11 @@
                             </p>
                         </div>
                         <ul class="ms-md-6 ps-md-3">
-                            <li class="mega-menu-item"><a class="dropdown-item fw-lighter" href="./campera"> VALEN.NQN</a></li>
-                            <li class="mega-menu-item"><a class="dropdown-item fw-lighter" href="./chaleco-reflectivo"> DE TRABAJO</a></li>
-                            <li class="mega-menu-item"><a class="dropdown-item fw-lighter" href="./buzo-friza">DE SOLDADOR</a></li>
-                            <li class="mega-menu-item"><a class="dropdown-item fw-lighter" href="./jean-de-trabajo">IGNIFUGA</a></li>
-                            <li class="mega-menu-item"><a class="dropdown-item fw-lighter" href="./jean-de-trabajo">FRÍO</a></li>
+                            <div v-for="ropaTrabajo in categoryList">
+                                <li class="mega-menu-item" v-if="ropaTrabajo.category_grouper_id.id === 1" >
+                                    <RouterLink to="" @click="redirect({ name: 'public-products.index', query: { grouper: ropaTrabajo.category_grouper_id.id, category: ropaTrabajo.id }})" class="dropdown-item fw-lighter">{{ ropaTrabajo.name }}</RouterLink>
+                                </li>
+                            </div>
                         </ul>
                     </div>
                 </div>
@@ -117,12 +118,11 @@
                             </p>
                         </div>
                         <ul class="ms-md-6 ps-md-3">
-                            <li class="mega-menu-item"><a class="dropdown-item fw-lighter" href="./rama-de-algodon"> AUDITIVA</a></li>
-                            <li class="mega-menu-item"><a class="dropdown-item fw-lighter" href="./chomba-de-algodon"> CRANEANA</a></li>
-                            <li class="mega-menu-item"><a class="dropdown-item fw-lighter" href="./bombacha-de-campo">DE MANOS</a></li>
-                            <li class="mega-menu-item"><a class="dropdown-item fw-lighter" href="./pantalon-de-seguridad"> OCULAR</a></li>
-                            <li class="mega-menu-item"><a class="dropdown-item fw-lighter" href="./pantalon-de-seguridad"> RESPIRATORIA</a></li>
-                            <li class="mega-menu-item"><a class="dropdown-item fw-lighter" href="./pantalon-de-seguridad"> LUMBAR Y DE ALTURA</a></li>
+                            <div v-for="procteccionPersonal in categoryList">
+                                <li class="mega-menu-item" v-if="procteccionPersonal.category_grouper_id.id === 5" >
+                                    <RouterLink to="" @click="redirect({ name: 'public-products.index', query: { grouper: procteccionPersonal.category_grouper_id.id, category: procteccionPersonal.id }})"  class="dropdown-item fw-lighter">{{ procteccionPersonal.name }}</RouterLink>
+                                </li>
+                            </div>
                         </ul>
                     </div>
                 </div>
@@ -133,9 +133,15 @@
 
 <script setup>
 import useAuth from "@/composables/auth";
-import {computed, ref} from "vue";
+import {computed, onMounted, ref} from "vue";
 import {useAuthStore} from "@/store/auth";
+import useCategories from "@/composables/categories";
+import SearchValen from "@/components/searchValen.vue";
+import router from "@/routes";
 const auth = useAuthStore()
+let viewSarch = ref(false);
+
+const {categoryList , getCategoryList } = useCategories();
 
 const user = computed(() => auth.user);
 const { processing, logout } = useAuth();
@@ -143,21 +149,54 @@ const { processing, logout } = useAuth();
 const isDropdownVisible = ref(false);
 const dropdownClass = ref('dropdown-menu'); // Clase del dropdown
 
+const toggleSearchEmit = (show) => {
+    console.log(show);
+    viewSarch.value = show;
+}
+const toggleSearch = () => {
+    viewSarch.value = !viewSarch.value;
+};
 const toggleDropdown = (event) => {
     event.preventDefault();
     isDropdownVisible.value = !isDropdownVisible.value;
 };
+
+const redirect = (routeName) => {
+    isDropdownVisible.value = false;
+    router.push(routeName);
+}
+
+
+onMounted(() => {
+    getCategoryList();
+})
 </script>
 
 <style scoped>
-.dropdown-toggle{
-    cursor: pointer;
-}
-.dropdown-menu {
-    display: none;
-}
+    .animate{
+        animation: 1s ease-out 0s 1 slideInFromLeft;
+    }
 
-.dropdown-menu.show {
-    display: block;
-}
+    @keyframes slideInFromLeft {
+        0% {
+            transform: translateY(-100%);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+    .dropdown-toggle{
+        cursor: pointer;
+    }
+    .dropdown-menu {
+        display: none;
+    }
+
+    .dropdown-menu.show {
+        display: block;
+    }
+
+    .cursor-pointer{
+        cursor: pointer;
+    }
 </style>

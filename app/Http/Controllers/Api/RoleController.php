@@ -40,7 +40,7 @@ class RoleController extends Controller
                 });
             })
             ->orderBy($orderColumn, $orderDirection)
-            ->paginate(50);
+            ->paginate(10);
 
         return RoleResource::collection($roles);
     }

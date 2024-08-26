@@ -24,7 +24,7 @@ const getRoute = () => {
             <li class="nav-item">
                 <sidenav-item :to="{ name: 'admin' }" :class="getRoute() === 'dashboard-default' ? 'active' : ''" :navText="isRTL ? 'لوحة القيادة' : 'Dashboard'">
                     <template v-slot:icon>
-                        <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+                        <i class="ni ni-chart-pie-35 text-success text-sm opacity-10"></i>
                     </template>
                 </sidenav-item>
             </li>
@@ -32,7 +32,7 @@ const getRoute = () => {
             <li v-if="can('permission-list')" class="nav-item">
                 <sidenav-item :to="{ name: 'permissions.index' }" :class="getRoute() === 'tables' ? 'active' : ''" :navText="isRTL ? 'الجداول' : 'Permisos'">
                     <template v-slot:icon>
-                        <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                        <i class="ni ni-lock-circle-open text-success text-sm opacity-10"></i>
                     </template>
                 </sidenav-item>
             </li>
@@ -40,7 +40,7 @@ const getRoute = () => {
             <li v-if="can('role-list')" class="nav-item">
                 <sidenav-item :to="{ name: 'roles.index' }" :class="getRoute() === 'tables' ? 'active' : ''" :navText="isRTL ? 'الجداول' : 'Roles'">
                     <template v-slot:icon>
-                        <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                        <i class="ni ni-lock-circle-open text-success text-sm opacity-10"></i>
                     </template>
                 </sidenav-item>
             </li>
@@ -48,7 +48,7 @@ const getRoute = () => {
             <li v-if="can('user-list')" class="nav-item">
                 <sidenav-item :to="{ name: 'users.index' }" :class="getRoute() === 'tables' ? 'active' : ''" :navText="isRTL ? 'الجداول' : 'Lista de usuarios'">
                     <template v-slot:icon>
-                        <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                        <i class="ni ni-circle-08 text-success text-sm opacity-10"></i>
                     </template>
                 </sidenav-item>
             </li>
@@ -56,7 +56,15 @@ const getRoute = () => {
             <li v-if="can('product-list')" class="nav-item">
                 <sidenav-item :to="{ name: 'products.index' }" :class="getRoute() === 'tables' ? 'active' : ''" :navText="isRTL ? 'الجداول' : 'Productos'">
                     <template v-slot:icon>
-                        <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                        <i class="ni ni-box-2 text-success text-sm opacity-10"></i>
+                    </template>
+                </sidenav-item>
+            </li>
+
+            <li v-if="can('category-list')" class="nav-item">
+                <sidenav-item :to="{ name: 'categorygroupers.index' }" :class="getRoute() === 'tables' ? 'active' : ''" :navText="isRTL ? 'الجداول' : 'Agrupador de categorías'">
+                    <template v-slot:icon>
+                        <i class="ni ni-tag text-success text-sm opacity-10"></i>
                     </template>
                 </sidenav-item>
             </li>
@@ -64,7 +72,23 @@ const getRoute = () => {
             <li v-if="can('category-list')" class="nav-item">
                 <sidenav-item :to="{ name: 'categories.index' }" :class="getRoute() === 'tables' ? 'active' : ''" :navText="isRTL ? 'الجداول' : 'Categorias'">
                     <template v-slot:icon>
-                        <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                        <i class="ni ni-tag text-success text-sm opacity-10"></i>
+                    </template>
+                </sidenav-item>
+            </li>
+
+            <li v-if="can('color-list')" class="nav-item">
+                <sidenav-item :to="{ name: 'colors.index' }" :class="getRoute() === 'tables' ? 'active' : ''" :navText="isRTL ? 'الجداول' : 'Colores'">
+                    <template v-slot:icon>
+                        <i class="ni ni-satisfied text-success text-sm opacity-10"></i>
+                    </template>
+                </sidenav-item>
+            </li>
+
+            <li v-if="can('size-list')" class="nav-item">
+                <sidenav-item :to="{ name: 'sizes.index' }" :class="getRoute() === 'tables' ? 'active' : ''" :navText="isRTL ? 'الجداول' : 'Tallas'">
+                    <template v-slot:icon>
+                        <i class="ni ni-calendar-grid-58 text-success text-sm opacity-10"></i>
                     </template>
                 </sidenav-item>
             </li>

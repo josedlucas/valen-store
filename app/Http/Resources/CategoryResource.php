@@ -18,6 +18,7 @@ class CategoryResource extends JsonResource
         return [
             'id'   => $this->id,
             'name' => $this->name,
+            'category_grouper_id' => new CategoryGrouperResource($this->categoryGrouper),
             'created_at' => $this->created_at->toDateString()
         ];
     }

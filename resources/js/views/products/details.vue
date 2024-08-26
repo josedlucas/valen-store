@@ -14,7 +14,7 @@
                         </slide>
                     </carousel>
                 </div>
-                <div class="col-lg-6 ps-lg-5" >
+                <form  @submit.prevent="submitForm" class="col-lg-6 ps-lg-5" >
                     <div class="pt-lg-2 pt-4">
                         <span class="font-size-14" v-for="category in product?.categories">{{ category.name }}</span>
                         <h1 class="fs-xl-35 fw-light">{{ product?.title }}</h1>
@@ -25,43 +25,38 @@
                         </h4>
                     </div>
                     <span class="font-size-14">ESPECIFICACIONES</span>
-                    <div class="py-3">
-                        <input class="btn-check" id="colorOrange" type="radio" name="color" autocomplete="off" />
-                        <label class="p-3 btn bg-orange me-2" for="colorOrange"></label>
-                        <input class="btn-check" id="colorBlue" type="radio" name="color" autocomplete="off" />
-                        <label class="p-3 btn bg-blue me-2" for="colorBlue"></label>
-                        <input class="btn-check" id="colorBrown" type="radio" name="color" autocomplete="off" />
-                        <label class="p-3 btn bg-brown me-2" for="colorBrown"></label>
-                        <input class="btn-check" id="colorRed" type="radio" name="color" autocomplete="off" />
-                        <label class="p-3 btn bg-red" for="colorRed"></label>
+                    <div class="pt-3 d-flex">
+                        <div v-for="(color, index) in product?.colors" class="me-2">
+                            <input :value="color.id" class="btn-check" :id="`color${color.id}`" type="radio" name="color" autocomplete="off" v-model="productPost.color_id"  />
+                            <label class="p-3 btn me-2" :style="`background-color: ${color.code};`" :for="`color${color.id}`"></label>
+                        </div>
                     </div>
-                    <div class="py-3 d-flex flex-wrap">
-                        <input class="btn-check" id="sizeS" type="radio" name="size" autocomplete="off" />
-                        <label class="btn me-2 btn-outline-dark btn-sm" for="sizeS">S</label>
-                        <input class="btn-check" id="sizeM" type="radio" name="size" autocomplete="off" />
-                        <label class="btn me-2 btn-outline-dark btn-sm" for="sizeM">M</label>
-                        <input class="btn-check" id="sizeL" type="radio" name="size" autocomplete="off" />
-                        <label class="btn me-2 btn-outline-dark btn-sm" for="sizeL">L</label>
-                        <input class="btn-check" id="sizeXL" type="radio" name="size" autocomplete="off" />
-                        <label class="btn me-2 btn-outline-dark btn-sm" for="sizeXL">XL</label>
-                        <input class="btn-check" id="sizeXXL" type="radio" name="size" autocomplete="off" />
-                        <label class="btn me-2 btn-outline-dark btn-sm" for="sizeXXL">XXL</label>
-                        <input class="btn-check" id="sizeXXXL" type="radio" name="size" autocomplete="off" />
-                        <label class="btn me-2 btn-outline-dark btn-sm" for="sizeXXXL">XXXL</label>
-                        <input class="btn-check" id="sizeXXXXL" type="radio" name="size" autocomplete="off" />
-                        <label class="btn btn-outline-dark btn-sm" for="sizeXXXXL">XXXXL</label>
+                    <small class="text-danger mt-1 d-block">
+                        {{ errors.color_id }}
+                    </small>
+                    <div class="pt-3 d-flex flex-wrap">
+                        <div v-for="size in product?.sizes" class="me-2">
+                            <input :value="size.id" class="btn-check" :id="`size${size.name}`" type="radio" name="size" autocomplete="off" v-model="productPost.size_id" />
+                            <label class="btn me-2 btn-outline-dark btn-sm" :for="`size${size.name}`">{{size.name}}</label>
+                        </div>
                     </div>
-                    <div class="pt-1 pb-4">
+                    <small class="text-danger mt-1">
+                        {{ errors.size_id }}
+                    </small>
+                    <div class="pt-1 pb-4 pt-3">
                         <a class="text-muted" href="" data-bs-toggle="modal" data-bs-target="#modalDeMedidas">
                             <img src="../../../valenweb/assets/images/icons/regla.svg" />
-                            <span class="ms-md-3">Guía de Talles</span>
+                            <span class="ms-md-3">Guía de Tallas</span>
                         </a>
                     </div>
                     <div class="d-flex">
-                        <InputCounter @input="receiveInputCounter" :count="0"/>
-                        <button class="btn btn-warning px-3 py-2 rounded-0 ms-md-3" type="button">AGREGAR AL CARRITO</button>
+                        <InputCounter @input="receiveInputCounter" :count="1"/>
+                        <button class="btn btn-warning px-3 py-2 rounded-0 ms-md-3" type="submit">
+                            <span  v-if="isLoading">Processing...</span>
+                            <span v-else>AGREGAR AL CARRITO</span>
+                        </button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </section>
@@ -72,7 +67,7 @@
                     <div class="modal-header">
                         <div class="d-flex align-items-center mx-auto">
                             <div class="text-center">
-                                <div class="fs-6 fw-light">MAMELUCO {{ product?.title }}</div>
+                                <div class="fs-6 fw-light" style="text-transform: uppercase;">{{ product?.title }}</div>
                                 <p class="fw-light">Medidas referenciales en cm</p>
                             </div>
                             <button class="btn-close position-absolute" type="button" data-bs-dismiss="modal" aria-label="Close" style="right: 3rem;"></button>
@@ -131,15 +126,56 @@
 </template>
 
 <script setup>
-import {nextTick, onMounted, ref, watch} from 'vue'
+import {nextTick, onMounted, reactive, ref, watch} from 'vue'
 import axios from 'axios';
 import { useRoute } from "vue-router";
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide } from 'vue3-carousel';
+import useCar from "@/composables/car";
 import InputCounter from "@/components/InputCounter.vue";
+import {useForm, useField, defineRule} from "vee-validate";
+import {required} from "@/validation/rules"
+
+defineRule('required', required)
+
+const { car, getCar, addToCar, isLoading } = useCar();
 
 const currentSlide = ref(0)
 const zoomImages = ref([])
+const route = useRoute()
+
+const schema = {
+    product_id: 'required',
+    total_product: 'required',
+    size_id: 'required',
+    color_id: 'required',
+}
+
+// Create a form context with the validation schema
+const {validate, errors} = useForm({validationSchema: schema});
+
+// alert validate swa validate and errors
+
+
+// Define actual fields for validation
+const {value: product_id} = useField('product_id', null, {initialValue: parseInt(route.params.id)});
+const {value: total_product} = useField('total_product', null, {initialValue: 1});
+const {value: color_id} = useField('color_id', null, {initialValue: '', label: 'color'});
+const {value: size_id} = useField('size_id', null, {initialValue: '', label: 'size'});
+
+const productPost = reactive({
+    product_id,
+    total_product,
+    color_id,
+    size_id
+})
+
+function submitForm() {
+    validate().then(form => {
+        if (form.valid) addToCar(productPost)
+    })
+}
+
 
 const carouselSettingsProductDetailThumbnails = {
     snapAlign: 'center',
@@ -163,7 +199,7 @@ const carouselSettingsProductDetail = {
 }
 
 const receiveInputCounter = (count) => {
-    console.log(count)
+    productPost.total_product = count
 }
 
 function changeSlide(index) {
@@ -202,13 +238,21 @@ function resetZoom() {
 
 const product = ref({});
 const categories = ref({});
-const route = useRoute()
+const colors = ref({});
+const sizes = ref({});
+
 
 onMounted( () => {
     axios.get('/api/get-product/' + route.params.id).then(({data}) => {
         product.value = data;
     })
     axios.get('/api/category-list').then(({data}) => {
+        categories.value = data.data;
+    })
+    axios.get('/api/color-list').then(({data}) => {
+        categories.value = data.data;
+    })
+    axios.get('/api/size-list').then(({data}) => {
         categories.value = data.data;
     })
 })

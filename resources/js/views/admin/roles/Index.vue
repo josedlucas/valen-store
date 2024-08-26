@@ -4,7 +4,7 @@
             <div class="card border-0">
                 <div class="card-header bg-transparent">
                     <h5 class="float-start">Roles</h5>
-                    <router-link v-if="can('role-list')" :to="{ name: 'roles.create' }" class="btn btn-primary btn-sm float-end">
+                    <router-link v-if="can('role-list')" :to="{ name: 'roles.create' }" class="btn btn-success btn-sm float-end">
                         Create Role
                     </router-link>
                 </div>
@@ -32,13 +32,13 @@
                             </tr>
                             <tr>
                                 <th class="px-6 py-3 text-start">
-                                    <div class="flex flex-row"
+                                    <div class="d-flex flex flex-row"
                                          @click="updateOrdering('id')">
                                         <div class="font-medium text-uppercase"
                                              :class="{ 'font-bold text-blue-600': orderColumn === 'id' }">
                                             ID
                                         </div>
-                                        <div class="select-none">
+                                        <div class="select-none ms-3">
                                 <span :class="{
                                   'text-blue-600': orderDirection === 'asc' && orderColumn === 'id',
                                   'hidden': orderDirection !== '' && orderDirection !== 'asc' && orderColumn === 'id',
@@ -51,13 +51,13 @@
                                     </div>
                                 </th>
                                 <th class="px-6 py-3 text-left">
-                                    <div class="flex flex-row"
+                                    <div class="d-flex flex flex-row"
                                          @click="updateOrdering('name')">
                                         <div class="font-medium text-uppercase"
                                              :class="{ 'font-bold text-blue-600': orderColumn === 'name' }">
                                             Title
                                         </div>
-                                        <div class="select-none">
+                                        <div class="select-none ms-3">
                                 <span :class="{
                                   'text-blue-600': orderDirection === 'asc' && orderColumn === 'name',
                                   'hidden': orderDirection !== '' && orderDirection !== 'asc' && orderColumn === 'name',
@@ -70,13 +70,13 @@
                                     </div>
                                 </th>
                                 <th class="px-6 py-3 bg-gray-50 text-left">
-                                    <div class="flex flex-row items-center justify-between cursor-pointer"
+                                    <div class="d-flex flex flex-row items-center justify-between cursor-pointer"
                                          @click="updateOrdering('created_at')">
                                         <div class="leading-4 font-medium text-gray-500 uppercase tracking-wider"
                                              :class="{ 'font-bold text-blue-600': orderColumn === 'created_at' }">
-                                            Created at
+                                            CREADO
                                         </div>
-                                        <div class="select-none">
+                                        <div class="select-none ms-3">
                                 <span :class="{
                                   'text-blue-600': orderDirection === 'asc' && orderColumn === 'created_at',
                                   'hidden': orderDirection !== '' && orderDirection !== 'asc' && orderColumn === 'created_at',
@@ -89,7 +89,7 @@
                                     </div>
                                 </th>
                                 <th class="px-6 py-3 bg-gray-50 text-left">
-                                    Actions
+                                    ACCIONES
                                 </th>
                             </tr>
                             </thead>
@@ -106,10 +106,10 @@
                                 </td>
                                 <td class="px-6 py-4 text-sm">
                                     <router-link v-if="can('role-edit')"
-                                                 :to="{ name: 'roles.edit', params: { id: post.id } }" class="badge bg-primary">Edit
+                                                 :to="{ name: 'roles.edit', params: { id: post.id } }" class="badge bg-success">Editar
                                     </router-link>
                                     <a href="#" v-if="can('role-delete')" @click.prevent="deleteRole(post.id)"
-                                       class="ms-2 badge bg-danger">Delete</a>
+                                       class="ms-2 badge bg-danger">Eliminar</a>
                                 </td>
                             </tr>
                             </tbody>

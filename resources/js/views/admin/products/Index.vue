@@ -4,7 +4,7 @@
             <div class="card border-0">
                 <div class="card-header bg-transparent">
                     <h5 class="float-start">Productos</h5>
-                    <router-link v-if="can('product-create')" :to="{ name: 'products.create' }" class="btn btn-primary btn-sm float-end">
+                    <router-link v-if="can('product-create')" :to="{ name: 'products.create' }" class="btn btn-success btn-sm float-end">
                         Crear producto
                     </router-link>
                 </div>
@@ -17,36 +17,37 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th class="py-3 bg-gray-50 text-left">
+                                    <th class="py-3 bg-gray-50 text-left align-items-center">
                                         <input v-model="search_id" type="text"
                                                class="inline-block mt-1 form-control"
                                                placeholder="Filter by ID">
                                     </th>
-                                    <th class="py-3 bg-gray-50 text-left">
+                                    <th class="py-3 bg-gray-50 text-left align-items-center">
                                         <input v-model="search_title" type="text"
                                                class="inline-block mt-1 form-control"
                                                placeholder="Filter by Title">
                                     </th>
-                                    <th class="py-3 text-start"></th>
-                                    <th class="py-3 bg-gray-50 text-left">
+                                    <th class="py-3 text-start align-items-center"></th>
+                                    <th class="py-3 bg-gray-50 text-left align-items-center">
                                         <v-select multiple v-model="search_category" :options="categoryList" :reduce="category => category.id" label="name" class="form-control w-100"/>
                                     </th>
-                                    <th class="py-3 bg-gray-50 text-left">
+                                    <th class="py-3 bg-gray-50 text-left align-items-center">
                                         <input v-model="search_content" type="text"
                                                class="inline-block mt-1 form-control"
                                                placeholder="Filter by Content">
                                     </th>
-                                    <th class="py-3 text-start"></th>
+                                    <th class="py-3 text-start align-items-center"></th>
+                                    <th class="py-3 text-start align-items-center"></th>
                                 </tr>
                                 <tr>
                                     <th class="px-6 py-3 text-start">
-                                        <div class="flex flex-row"
+                                        <div class="d-flex flex flex-row"
                                              @click="updateOrdering('id')">
                                             <div class="font-medium text-uppercase"
                                                  :class="{ 'font-bold text-blue-600': orderColumn === 'id' }">
                                                 ID
                                             </div>
-                                            <div class="select-none">
+                                            <div class="select-none ms-3">
                                     <span :class="{
                                       'text-blue-600': orderDirection === 'asc' && orderColumn === 'id',
                                       'hidden': orderDirection !== '' && orderDirection !== 'asc' && orderColumn === 'id',
@@ -59,13 +60,13 @@
                                         </div>
                                     </th>
                                     <th class="px-6 py-3 text-left">
-                                        <div class="flex flex-row"
+                                        <div class="d-flex flex flex-row"
                                              @click="updateOrdering('title')">
                                             <div class="font-medium text-uppercase"
                                                  :class="{ 'font-bold text-blue-600': orderColumn === 'title' }">
                                                 Title
                                             </div>
-                                            <div class="select-none">
+                                            <div class="select-none ms-3">
                                     <span :class="{
                                       'text-blue-600': orderDirection === 'asc' && orderColumn === 'title',
                                       'hidden': orderDirection !== '' && orderDirection !== 'asc' && orderColumn === 'title',
@@ -78,26 +79,26 @@
                                         </div>
                                     </th>
                                     <th class="px-6 py-3 text-left">
-                                        <div class="flex flex-row">
+                                        <div class="d-flex flex flex-row">
                                             <div class="font-medium text-uppercase">
                                                 Thumbnail
                                             </div>
                                         </div>
                                     </th>
                                     <th class="px-6 py-3 bg-gray-50 text-left">
-                                        <span class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Category</span>
+                                        <div class="leading-4 font-medium text-gray-500 uppercase tracking-wider">Category</div>
                                     </th>
                                     <th class="px-6 py-3 bg-gray-50 text-left">
-                                        <span class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Content</span>
+                                        <span class="leading-4 font-medium text-gray-500 uppercase tracking-wider">Content</span>
                                     </th>
                                     <th class="px-6 py-3 bg-gray-50 text-left">
-                                        <div class="flex flex-row items-center justify-between cursor-pointer"
+                                        <div class="d-flex flex flex-row items-center justify-between cursor-pointer"
                                              @click="updateOrdering('created_at')">
                                             <div class="leading-4 font-medium text-gray-500 uppercase tracking-wider"
                                                  :class="{ 'font-bold text-blue-600': orderColumn === 'created_at' }">
-                                                Created at
+                                                CREADO
                                             </div>
-                                            <div class="select-none">
+                                            <div class="select-none ms-3">
                                     <span :class="{
                                       'text-blue-600': orderDirection === 'asc' && orderColumn === 'created_at',
                                       'hidden': orderDirection !== '' && orderDirection !== 'asc' && orderColumn === 'created_at',
@@ -110,7 +111,7 @@
                                         </div>
                                     </th>
                                     <th class="px-6 py-3 bg-gray-50 text-left">
-                                        Actions
+                                        ACCIONES
                                     </th>
                                 </tr>
                             </thead>
@@ -138,10 +139,10 @@
                                     </td>
                                     <td class="px-6 py-4 text-sm">
                                         <router-link v-if="can('product-edit')"
-                                                     :to="{ name: 'products.edit', params: { id: product.id } }" class="badge bg-primary">Edit
+                                                     :to="{ name: 'products.edit', params: { id: product.id } }" class="badge bg-success">Editar
                                         </router-link>
                                         <a href="#" v-if="can('product-delete')" @click.prevent="deleteProduct(product.id)"
-                                           class="ms-2 badge bg-danger">Delete</a>
+                                           class="ms-2 badge bg-danger">Eliminar</a>
                                     </td>
                                 </tr>
                             </tbody>

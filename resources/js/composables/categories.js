@@ -116,8 +116,8 @@ export default function useCategories() {
             })
     }
 
-    const getCategoryList = async () => {
-        axios.get('/api/category-list')
+    const getCategoryList = async (params = {}) => {
+        await axios.get('/api/category-list' , {params})
             .then(response => {
                 categoryList.value = response.data.data;
             })

@@ -25,6 +25,8 @@ class ProductResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'categories' => $this->categories,
+            'colors' => $this->colors,
+            'sizes' => $this->sizes,
             'content' => $this->content,
             'original_image' => count($this->getMedia('*')) > 0 ? $this->getMedia('*')[0]->getUrl() : null,
             'original_all_images' => $this->getMedia('*')->map(function ($media) {

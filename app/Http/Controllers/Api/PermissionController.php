@@ -43,7 +43,7 @@ class PermissionController extends Controller
                 });
             })
             ->orderBy($orderColumn, $orderDirection)
-            ->paginate(50);
+            ->paginate(10);
 
         return PermissionResource::collection($permissions);
     }

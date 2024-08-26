@@ -4,7 +4,7 @@
             <div class="card border-0">
                 <div class="card-header bg-transparent">
                     <h5 class="float-start">Categories</h5>
-                    <router-link v-if="can('category-create')" :to="{ name: 'categories.create' }" class="btn btn-primary btn-sm float-end">
+                    <router-link v-if="can('category-create')" :to="{ name: 'categories.create' }" class="btn btn-success btn-sm float-end">
                         Create Category
                     </router-link>
                 </div>
@@ -32,13 +32,13 @@
                             </tr>
                             <tr>
                                 <th class="px-6 py-3 text-start">
-                                    <div class="flex flex-row"
+                                    <div class="d-flex flex flex-row"
                                          @click="updateOrdering('id')">
                                         <div class="font-medium text-uppercase"
                                              :class="{ 'font-bold text-blue-600': orderColumn === 'id' }">
                                             ID
                                         </div>
-                                        <div class="select-none">
+                                        <div class="select-none ms-3">
                                 <span :class="{
                                   'text-blue-600': orderDirection === 'asc' && orderColumn === 'id',
                                   'hidden': orderDirection !== '' && orderDirection !== 'asc' && orderColumn === 'id',
@@ -51,13 +51,13 @@
                                     </div>
                                 </th>
                                 <th class="px-6 py-3 text-left">
-                                    <div class="flex flex-row"
+                                    <div class="d-flex flex flex-row"
                                          @click="updateOrdering('title')">
                                         <div class="font-medium text-uppercase"
                                              :class="{ 'font-bold text-blue-600': orderColumn === 'title' }">
                                             Title
                                         </div>
-                                        <div class="select-none">
+                                        <div class="select-none ms-3">
                                 <span :class="{
                                   'text-blue-600': orderDirection === 'asc' && orderColumn === 'title',
                                   'hidden': orderDirection !== '' && orderDirection !== 'asc' && orderColumn === 'title',
@@ -69,14 +69,19 @@
                                         </div>
                                     </div>
                                 </th>
+
                                 <th class="px-6 py-3 bg-gray-50 text-left">
-                                    <div class="flex flex-row items-center justify-between cursor-pointer"
+                                    AGRUPADOR DE CATEGORIAS
+                                </th>
+
+                                <th class="px-6 py-3 bg-gray-50 text-left">
+                                    <div class="d-flex flex flex-row items-center justify-between cursor-pointer"
                                          @click="updateOrdering('created_at')">
                                         <div class="leading-4 font-medium text-gray-500 uppercase tracking-wider"
                                              :class="{ 'font-bold text-blue-600': orderColumn === 'created_at' }">
-                                            Created at
+                                            CREADO
                                         </div>
-                                        <div class="select-none">
+                                        <div class="select-none ms-3">
                                 <span :class="{
                                   'text-blue-600': orderDirection === 'asc' && orderColumn === 'created_at',
                                   'hidden': orderDirection !== '' && orderDirection !== 'asc' && orderColumn === 'created_at',
@@ -89,7 +94,7 @@
                                     </div>
                                 </th>
                                 <th class="px-6 py-3 bg-gray-50 text-left">
-                                    Actions
+                                    ACCIONES
                                 </th>
                             </tr>
                             </thead>
@@ -102,15 +107,18 @@
                                     {{ post.name }}
                                 </td>
                                 <td class="px-6 py-4 text-sm">
+                                    {{ post.category_grouper_id.name }}
+                                </td>
+                                <td class="px-6 py-4 text-sm">
                                     {{ post.created_at }}
                                 </td>
                                 <td class="px-6 py-4 text-sm">
                                     <router-link v-if="can('category-edit')"
                                                  :to="{ name: 'categories.edit', params: { id: post.id } }"
-                                                 class="badge bg-primary">Edit
+                                                 class="badge bg-success">Editar
                                     </router-link>
                                     <a href="#" v-if="can('category-delete')" @click.prevent="deleteCategory(post.id)"
-                                       class="ms-2 badge bg-danger">Delete</a>
+                                       class="ms-2 badge bg-danger">Eliminar</a>
                                 </td>
                             </tr>
                             </tbody>

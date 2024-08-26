@@ -16,7 +16,7 @@ function requireLogin(to, from, next) {
     if (isLogin) {
         next()
     } else {
-        next('/login')
+        next('/backoffice/login')
     }
 }
 
@@ -47,6 +47,7 @@ export default [
                 path: 'products',
                 name: 'public-products.index',
                 component: () => import('../views/products/index.vue'),
+                props: true
             },
             {
                 path: 'products/:id',
@@ -72,12 +73,17 @@ export default [
                 path: 'car',
                 name: 'car.index',
                 component: () => import('../views/car/car.vue'),
+            },
+            {
+                path: 'login',
+                name: 'auth.login'
             }
+
         ]
     },
     {
         path: '/backoffice',
-        // redirect: { name: 'login' },
+        redirect: { name: 'auth.login' },
         component: GuestLayout,
         children: [
             {
@@ -137,31 +143,85 @@ export default [
                 name: 'products.create',
                 path: 'products/create',
                 component: ProductsCreate,
-                meta: { breadCrumb: 'Add new post' }
+                meta: { breadCrumb: 'Add new product' }
             },
             {
                 name: 'products.edit',
                 path: 'products/edit/:id',
                 component: ProductsEdit,
-                meta: { breadCrumb: 'Edit post' }
+                meta: { breadCrumb: 'Edit product' }
             },
             {
                 name: 'categories.index',
                 path: 'categories',
                 component: () => import('../views/admin/categories/Index.vue'),
-                meta: { breadCrumb: 'Categories' }
+                meta: { breadCrumb: 'Category' }
             },
             {
                 name: 'categories.create',
                 path: 'categories/create',
                 component: () => import('../views/admin/categories/Create.vue'),
-                meta: { breadCrumb: 'Add new category' }
+                meta: { breadCrumb: 'Add new Category' }
             },
             {
                 name: 'categories.edit',
                 path: 'categories/edit/:id',
                 component: () => import('../views/admin/categories/Edit.vue'),
                 meta: { breadCrumb: 'Edit Category' }
+            },
+            {
+                name: 'categorygroupers.index',
+                path: 'categorygroupers',
+                component: () => import('../views/admin/categorygroupers/Index.vue'),
+                meta: { breadCrumb: 'Category Groupers' }
+            },
+            {
+                name: 'categorygroupers.create',
+                path: 'categorygroupers/create',
+                component: () => import('../views/admin/categorygroupers/Create.vue'),
+                meta: { breadCrumb: 'Add new category croupers' }
+            },
+            {
+                name: 'categorygroupers.edit',
+                path: 'categorygroupers/edit/:id',
+                component: () => import('../views/admin/categorygroupers/Edit.vue'),
+                meta: { breadCrumb: 'Edit Category Groupers' }
+            },
+            {
+                name: 'colors.index',
+                path: 'colors',
+                component: () => import('../views/admin/colors/Index.vue'),
+                meta: { breadCrumb: 'Categories' }
+            },
+            {
+                name: 'colors.create',
+                path: 'colors/create',
+                component: () => import('../views/admin/colors/Create.vue'),
+                meta: { breadCrumb: 'Add new category' }
+            },
+            {
+                name: 'colors.edit',
+                path: 'colors/edit/:id',
+                component: () => import('../views/admin/colors/Edit.vue'),
+                meta: { breadCrumb: 'Edit Size' }
+            },
+            {
+                name: 'sizes.index',
+                path: 'sizes',
+                component: () => import('../views/admin/sizes/Index.vue'),
+                meta: { breadCrumb: 'Sizes' }
+            },
+            {
+                name: 'sizes.create',
+                path: 'sizes/create',
+                component: () => import('../views/admin/sizes/Create.vue'),
+                meta: { breadCrumb: 'Add new Size' }
+            },
+            {
+                name: 'sizes.edit',
+                path: 'sizes/edit/:id',
+                component: () => import('../views/admin/sizes/Edit.vue'),
+                meta: { breadCrumb: 'Edit Size' }
             },
             {
                 name: 'permissions.index',

@@ -30,33 +30,51 @@
             </form>
             <h5 class="fs-xl-25 fs-14 mt-7">PRODUCTOS</h5>
             <div class="container-xl mb-xl-8 mt-xl-5">
-                <div class="row mt-md-5 border-bottom pb-xl-5" v-for="slide in 4" :key="slide">
+                <div class="row mt-md-5 border-bottom pb-xl-5" v-for="item in car.carItems" :key="item">
                     <div class="col-xl-2">
-                        <img class="w-70 rounded-4" src="../../../valenweb/assets/images/products/Camisa.jpeg" />
+                        <img class="w-70 rounded-4" :src="item.products.original_image" />
                     </div>
                     <div class="col-xl-10 d-flex align-items-end">
                         <div class="w-100">
-                            <h6 class="fs-xl-22 fw-lighter">Mameluco industrial</h6>
+                            <h6 class="fs-xl-22 fw-lighter">{{item.products.title}}</h6>
                             <div class="d-flex mt-xl-4">
-                                <select class="form-control rounded-0 form-control-lg w-35">
-                                    <option value="1">Azul marino</option>
-                                    <option value="2">Rojo</option>
-                                    <option value="3">Verde</option>
-                                </select>
+                                <v-select
+                                    v-model="item.colors"
+                                    :options="item.products.colors"
+                                    label="code"
+                                    class="form-control p-0 rounded-0 w-30"
+                                    placeholder="Select color">
+                                    <template #selected-option="{ code }">
+                                        <div style="display: flex; align-items: center;">
+                                        <span :style="{ backgroundColor: code }"
+                                              style="display: inline-block; width: 20px; height: 20px; border: 1px solid #ddd; margin-right: 10px;">
+                                        </span>
+                                            <span>{{ code }}</span>
+                                        </div>
+                                    </template>
+                                    <template #option="{ code }">
+                                        <div style="display: flex; align-items: center;">
+                                        <span :style="{ backgroundColor: code }"
+                                              style="display: inline-block; width: 20px; height: 20px; border: 1px solid #ddd; margin-right: 10px;">
+                                        </span>
+                                            <span>{{ code }}</span>
+                                        </div>
+                                    </template>
+                                </v-select>
                                 <select class="form-control rounded-0 form-control-lg w-15 ms-xl-3">
-                                    <option value="1">S</option>
-                                    <option value="2">M</option>
-                                    <option value="3">L</option>
-                                    <option value="3">XL</option>
-                                    <option value="3">XXL</option>
+                                    <option :value="size.id" v-for="size in item.products.sizes" :key="size">S</option>
                                 </select>
-                                <InputCounter @input="receiveInputCounter" :count="0" class="ms-xl-3"/>
-                                <button class="btn btn-dark px-3 py-2 rounded-0 ms-3 col-2" type="button">DELETE</button>
+                                <InputCounter @input="receiveInputCounter" :count="item.total_product" class="ms-xl-3"/>
+                                <button class="btn btn-dark px-3 py-2 rounded-0 ms-3 col-2" @click="deleteCarItem(car.id)" type="button">DELETE</button>
                             </div>
                         </div>
                     </div>
                 </div>
-
+                <div class="row mt-md-6 px-xl-3">
+                    <a class="btn btn-warning px-3 py-2 rounded-0 d-block col-3" type="button">ENVIAR PRESUPUESTO</a>
+                    <router-link :to="{name: 'public-products.index'}" class="btn btn-dark px-3 py-2 rounded-0 ms-3 col-3" type="button">AGREGAR PRODUCTOS</router-link>
+                    <a class="btn btn-outline-dark px-3 py-2 rounded-0 ms-3 col-2" type="button" @click="deleteCar(car.id)">BORRAR PEDIDO</a>
+                </div>
             </div>
         </div>
     </section>
@@ -64,9 +82,33 @@
 
 <script setup>
 
+import { onMounted } from "vue";
 import InputCounter from "@/components/InputCounter.vue";
+import useCar from "@/composables/car";
+import useColors from "@/composables/colors";
+import useSizes from "@/composables/sizes";
 
-const receiveInputCounter = (count) => {
-    console.log(count);
+const { car, getCar, deleteCarItem, deleteCar } = useCar();
+
+
+onMounted(() => {
+    getCar();
+});
+
+
+
+const receiveInputCounter = (value) => {
+    console.log(value)
 }
+
 </script>
+<style>
+.v-select, .v-select input {
+    border: none !important;
+}
+.vs--searchable .vs__dropdown-toggle {
+    cursor: text;
+    height: 100%;
+    border-radius: 0;
+}
+</style>

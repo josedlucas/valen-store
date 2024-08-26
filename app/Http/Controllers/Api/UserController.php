@@ -43,7 +43,7 @@ class UserController extends Controller
                 });
             })
             ->orderBy($orderColumn, $orderDirection)
-            ->paginate(50);
+            ->paginate(10);
 
         return UserResource::collection($users);
     }

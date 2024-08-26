@@ -9,7 +9,7 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'category_grouper_id'];
 
     /**
      * Get the posts for the category.
@@ -17,5 +17,10 @@ class Category extends Model
     public function products()
     {
         return $this->belongsToMany(Product::class,'category_product');
+    }
+
+    public function categoryGrouper()
+    {
+        return $this->belongsTo(CategoryGrouper::class, 'category_grouper_id');
     }
 }

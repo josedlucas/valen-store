@@ -6,7 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Resources\ProductResource;
 use App\Models\Category;
+use App\Models\Color;
 use App\Models\Product;
+use App\Models\Size;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -48,7 +51,7 @@ class ProductController extends Controller
                 $query->where('user_id', auth()->id());
             })
             ->orderBy($orderColumn, $orderDirection)
-            ->paginate(50);
+            ->paginate(10);
         return ProductResource::collection($products);
     }
 
@@ -62,7 +65,16 @@ class ProductController extends Controller
 
         $categories = explode(",", $request->categories);
         $category = Category::findMany($categories);
+
+        $colors = explode(",", $request->colors);
+        $color = Color::findMany($colors);
+
+        $sizes = explode(",", $request->sizes);
+        $size = Size::findMany($sizes);
+
         $product->categories()->attach($category);
+        $product->colors()->attach($color);
+        $product->sizes()->attach($size);
 
 
         // Manejar múltiples archivos de tipo thumbnail
@@ -95,6 +107,13 @@ class ProductController extends Controller
 
             $category = Category::findMany($request->categories);
             $product->categories()->sync($category);
+
+            $color = Color::findMany($request->colors);
+            $product->colors()->sync($color);
+
+            $size = Size::findMany($request->sizes);
+            $product->sizes()->sync($size);
+
             return new ProductResource($product);
         }
     }
@@ -110,9 +129,29 @@ class ProductController extends Controller
         }
     }
 
-    public function getProducts()
+    public function getProducts(Request $request)
     {
-        $products = Product::with('categories')->with('media')->latest()->paginate();
+        $products = Product::with('categories')
+        ->with('colors')
+        ->with('sizes')
+        ->with('media');
+
+        if($request->input('category')){
+            $products = $products->whereHas('categories', function ($query) {
+                $query->where('id', request('category'));
+            });
+        }
+
+        if($request->input('grouper')){
+            $products = $products->whereHas('categories', function ($query) {
+                $query->whereHas('categoryGrouper', function ($query) {
+                    $query->where('id', request('grouper'));
+                });
+            });
+        }
+        $products = $products->latest()
+        ->paginate();
+
         return ProductResource::collection($products);
 
     }
@@ -126,6 +165,17 @@ class ProductController extends Controller
 
     public function getProduct($id)
     {
-        return Product::with('categories', 'user', 'media')->findOrFail($id);
+        return Product::with('categories', 'colors', 'sizes', 'user', 'media')->findOrFail($id);
+    }
+
+    public function searchProduct($search)
+    {
+        $products = Product::where('title', 'like', '%' . $search . '%')
+            ->orWhereHas('categories', function ($query) use ($search) {
+                $query->where('name', 'like', '%' . $search . '%');
+            })
+            ->paginate(5);
+
+        return ProductResource::collection($products);
     }
 }
