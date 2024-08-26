@@ -59,7 +59,7 @@
                     </div>
                     <div class="g-recaptcha" data-sitekey="6LdO4h8pAAAAADj8tAhq-v0D5x8q_adS6LTQdXmp"></div>
                     <div class="mb-3 mt-lg-3 mt-4 justify-content-xl-start justify-content-center d-flex">
-                        <button class="btn btn-warning rounded-0" type="submit">ENVIAR</button>
+                        <a class="btn btn-warning rounded-0">ENVIAR</a>
                     </div>
                 </div>
             </form>

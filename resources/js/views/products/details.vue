@@ -50,7 +50,7 @@
                         </a>
                     </div>
                     <div class="d-flex">
-                        <InputCounter @input="receiveInputCounter" :count="1"/>
+                        <InputCounter @update:count="receiveInputCounter" :count="1"/>
                         <button class="btn btn-warning px-3 py-2 rounded-0 ms-md-3" type="submit">
                             <span  v-if="isLoading">Processing...</span>
                             <span v-else>AGREGAR AL CARRITO</span>

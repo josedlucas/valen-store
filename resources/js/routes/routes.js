@@ -50,6 +50,11 @@ export default [
                 props: true
             },
             {
+                path: 'order/:id',
+                name: 'order.index',
+                component: () => import('../views/order/index.vue')
+            },
+            {
                 path: 'products/:id',
                 name: 'public-products.details',
                 component: () => import('../views/products/details.vue'),

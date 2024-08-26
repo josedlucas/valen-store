@@ -83,11 +83,27 @@ export default function useCar() {
         })
     }
 
+    const updateCar = () => {
+        isLoading.value = true
+        axios.put('/api/car/' + car.value.id, car.value)
+        .then(response => {
+            isLoading.value = false
+        })
+        .catch( error => {
+            isLoading.value = false
+            Toast.fire({
+                icon: 'error',
+                title: 'No se pudo actualizar el carrito'
+            })
+        })
+    }
+
     return {
         getCar,
         addToCar,
         deleteCarItem,
         deleteCar,
+        updateCar,
         car,
         isLoading
     }

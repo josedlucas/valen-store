@@ -32,6 +32,7 @@ Route::view('/contact', 'main-web');
 Route::view('/contact', 'main-web');
 Route::view('/about', 'main-web');
 Route::view('/car', 'main-web');
+Route::view('/order/{id}', 'main-web');
 
 Route::view('/backoffice/{any?}', 'main-view')
     ->name('dashboard')

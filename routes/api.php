@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\CarController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\CategoryGrouperController;
 use App\Http\Controllers\Api\ColorController;
+use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\PermissionController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ProfileController;
@@ -28,6 +29,7 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::apiResource('colors', ColorController::class);
     Route::apiResource('sizes', SizeController::class);
     Route::apiResource('roles', RoleController::class);
+    Route::apiResource('orders', OrderController::class);
     Route::get('role-list', [RoleController::class, 'getList']);
     Route::get('role-permissions/{id}', [PermissionController::class, 'getRolePermissions']);
     Route::put('/role-permissions', [PermissionController::class, 'updateRolePermissions']);
@@ -51,6 +53,7 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
     });
 });
 
+Route::post('orders', [OrderController::class, 'createOrder']);
 Route::get('category-list', [CategoryController::class, 'getList']);
 Route::get('categorygrouper-list', [CategoryGrouperController::class, 'getList']);
 Route::get('color-list', [ColorController::class, 'getList']);
