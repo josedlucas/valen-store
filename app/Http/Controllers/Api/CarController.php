@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCarRequest;
 use App\Http\Resources\CarResource;
 use App\Http\Resources\ProductResource;
-use App\Models\car;
+use App\Models\Car;
 use App\Models\CarItem;
 use App\Models\Product;
 use Exception;
