@@ -64,7 +64,7 @@
                     <li class="nav-item ms-lg-4 d-flex align-items-center">
                         <RouterLink :to="{ name: 'car.index' }" class="nav-link" >
                             <img src="../../valenweb/assets/images/icons/car.svg" alt="Lupa" />
-                            <span class="cart-number" id="conterCart">21</span>
+                            <!-- <span class="cart-number" id="conterCart">21</span>-->
                         </RouterLink>
                     </li>
                 </ul>
