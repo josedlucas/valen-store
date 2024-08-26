@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\OrderResource;
+use App\Mail\OrderMail;
 use App\Models\Buyer;
 use App\Models\Car;
 use App\Models\Order;
 use App\Models\OrderItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -52,6 +54,9 @@ class OrderController extends Controller
         }
         // borrar carrito
         Car::where('session_id', $session_id)->delete();
+
+        Mail::to('jsdlcs266@gmail.com')->send(new OrderMail($order));
+
         return new OrderResource($order);
     }
 
