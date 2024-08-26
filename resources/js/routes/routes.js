@@ -121,9 +121,9 @@ export default [
         path: '/backoffice/admin',
         component: AuthenticatedLayout,
         name: 'admin',
-        // redirect: {
-        //     name: 'admin.index'
-        // },
+        redirect: {
+             name: 'products.index'
+        },
         beforeEnter: requireLogin,
         children: [
             {

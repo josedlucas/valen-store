@@ -21,13 +21,13 @@ const getRoute = () => {
 <template>
     <div class="collapse navbar-collapse w-auto h-auto h-100" id="sidenav-collapse-main">
         <ul class="navbar-nav">
-            <li class="nav-item">
+            <!--<li class="nav-item">
                 <sidenav-item :to="{ name: 'admin' }" :class="getRoute() === 'dashboard-default' ? 'active' : ''" :navText="isRTL ? 'لوحة القيادة' : 'Dashboard'">
                     <template v-slot:icon>
                         <i class="ni ni-chart-pie-35 text-success text-sm opacity-10"></i>
                     </template>
                 </sidenav-item>
-            </li>
+            </li>-->
 
             <li v-if="can('permission-list')" class="nav-item">
                 <sidenav-item :to="{ name: 'permissions.index' }" :class="getRoute() === 'tables' ? 'active' : ''" :navText="isRTL ? 'الجداول' : 'Permisos'">
