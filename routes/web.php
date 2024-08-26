@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +34,16 @@ Route::view('/contact', 'main-web');
 Route::view('/about', 'main-web');
 Route::view('/car', 'main-web');
 Route::view('/order/{id}', 'main-web');
+
+// delete cache
+
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    $exitCode = Artisan::call('config:clear');
+    $exitCode = Artisan::call('view:clear');
+    return 'DONE'; //Return anything
+});
+
 
 Route::view('/backoffice/{any?}', 'main-view')
     ->name('dashboard')
