@@ -117,9 +117,9 @@ class ProductController extends Controller
 
             // Manejar múltiples archivos de tipo thumbnail
             if ($request->hasFile('thumbnail')) {
-                foreach ($request->file('thumbnail') as $file) {
-                    $product->addMedia($file)->preservingOriginal()->toMediaCollection('images');
-                }
+                // eliminar todos y colocar nuevas
+                $product->clearMediaCollection('images');
+                $product->addMedia($request->file('thumbnail'))->preservingOriginal()->toMediaCollection('images');
             }
 
             return new ProductResource($product);
