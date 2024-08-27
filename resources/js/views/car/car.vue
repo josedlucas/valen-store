@@ -79,7 +79,7 @@
                                     <option :value="size.id" v-for="size in item.products.sizes" :key="size">{{size.name}}</option>
                                 </select>
                                 <InputCounter v-model:count="item.total_product" @update:count="updateCar"   class="ms-xl-3 d-md-inline-flex d-none"/>
-                                <button class="btn btn-dark px-3 py-2 rounded-0 ms-2 col-2" @click="deleteCarItem(car.id)" type="button">
+                                <button class="btn btn-dark px-3 py-2 rounded-0 ms-2 col-2" @click="deleteCarItem(item.id)" type="button">
                                     <svg width="20" height="25" viewBox="0 0 20 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M1.75305 14.1377C1.75305 12.1775 1.75187 10.2172 1.75385 8.25694C1.75444 7.68133 2.07842 7.27154 2.61673 7.15035C3.21478 7.01575 3.83758 7.48468 3.87078 8.0958C3.8752 8.17799 3.87243 8.2605 3.87243 8.34288C3.87243 12.1481 3.87236 15.9533 3.8725 19.7585C3.87256 21.0302 4.74006 21.8978 6.01201 21.8979C8.80356 21.8982 11.5951 21.8982 14.3867 21.8979C15.6579 21.8978 16.5247 21.0296 16.5247 19.7568C16.5249 15.9022 16.5243 12.0475 16.5255 8.1929C16.5257 7.66053 16.8605 7.26111 17.3917 7.14626C17.8379 7.04981 18.3387 7.29656 18.5295 7.73447C18.5996 7.89533 18.6393 8.0832 18.6395 8.25878C18.6456 12.1464 18.6498 16.034 18.6419 19.9215C18.6378 21.9918 17.0556 23.7368 14.9873 23.9777C14.7836 24.0015 14.5775 24.016 14.3725 24.0162C11.5644 24.0187 8.75643 24.0186 5.94837 24.0176C3.88768 24.0168 2.19288 22.6106 1.81649 20.5823C1.77174 20.3411 1.75629 20.0914 1.7557 19.8455C1.75088 17.9429 1.75305 16.0403 1.75305 14.1377Z" fill="white"/>
                                         <path d="M5.97394 3.95949C5.97394 3.45703 5.97269 2.98083 5.97447 2.5047C5.9754 2.25776 5.96615 2.00943 5.9886 1.76421C6.0389 1.21316 6.46849 0.801784 7.02363 0.799738C9.13997 0.791751 11.2564 0.790893 13.3727 0.800002C13.9827 0.802643 14.4084 1.2657 14.4205 1.91081C14.4314 2.49546 14.4232 3.08038 14.4234 3.66516V3.95949H14.7131C16.006 3.95956 17.2989 3.9552 18.5917 3.96128C19.36 3.96497 19.8717 4.65841 19.6366 5.36029C19.4922 5.79146 19.1052 6.07834 18.6478 6.07847C13.0151 6.07973 7.38246 6.07999 1.74984 6.07821C1.17087 6.07808 0.715537 5.61878 0.710257 5.04641C0.704646 4.43622 1.15741 3.96557 1.78001 3.962C3.08113 3.95461 4.38225 3.95963 5.68337 3.95949H5.97394ZM8.11259 3.94101H12.2793V2.92796H8.11259V3.94101Z" fill="white"/>
@@ -116,7 +116,7 @@ import InputCounter from "@/components/InputCounter.vue";
 import useCar from "@/composables/car";
 import useOrder from "@/composables/orders";
 import {defineRule, useField, useForm} from "vee-validate";
-import {required, min} from "@/validation/rules"
+import {required, min} from "@/validation/rules";
 
 const { car, getCar, deleteCarItem, deleteCar, updateCar } = useCar();
 const { storeOrder } = useOrder();

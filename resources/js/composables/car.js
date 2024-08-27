@@ -1,11 +1,11 @@
 import { ref, inject } from 'vue'
 import { useRouter } from 'vue-router'
-
+import {useCartStore} from "@/composables/cartStore";
 export default function useCar() {
     const car = ref([])
-
     const isLoading = ref(false)
     const swal = inject('$swal')
+    const cartStore = useCartStore();
 
     const Toast = swal.mixin({
         toast: true,
@@ -27,8 +27,9 @@ export default function useCar() {
     const addToCar = async (product) => {
         isLoading.value = true
         axios.post('/api/car', product)
-        .then(response => {
+        .then(async response => {
             isLoading.value = false
+            await cartStore.addProduct(response.data.data.carItems);
             Toast.fire({
                 icon: 'success',
                 title: 'Producto agregado al carrito correctamente'
@@ -46,12 +47,13 @@ export default function useCar() {
     const deleteCarItem = async (id) => {
         isLoading.value = true
         axios.delete('/api/car/' + id)
-        .then(response => {
+        .then(async response => {
             getCar();
             isLoading.value = false
+            await cartStore.addProduct(response.data.data.carItems);
             Toast.fire({
                 icon: 'success',
-                title: 'Producto agregado al carrito correctamente'
+                title: 'Producto eliminado del carrito correctamente'
             })
         })
         .catch( error => {
@@ -66,9 +68,10 @@ export default function useCar() {
     const deleteCar = async ($id) => {
         isLoading.value = true
         axios.delete('/api/car/deleteall/'+ $id)
-        .then(response => {
+        .then(async response => {
             getCar();
             isLoading.value = false
+            await cartStore.clearCart();
             Toast.fire({
                 icon: 'success',
                 title: 'Carrito vaciado correctamente'

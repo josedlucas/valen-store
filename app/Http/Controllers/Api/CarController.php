@@ -63,7 +63,7 @@ class CarController extends Controller
                 'total_product' => $request->total_product
             ]);
 
-            return response()->json(['message' => 'Car created successfully'], 201);
+            return new CarResource($car);
 
         } catch (Exception $e) {
             return response()->json(['message' => $e->getMessage()], 400);
@@ -114,9 +114,10 @@ class CarController extends Controller
         if (!$carItem) {
             return response()->json(['message' => 'Car not found'], 404);
         }
-
         $carItem->delete();
-        return response()->json(['message' => 'Car deleted successfully'], 200);
+
+        $car = Car::find($carItem->car_id);
+        return new CarResource($car);
     }
 
     public function deleteAll(Car $id){

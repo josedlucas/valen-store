@@ -15,6 +15,7 @@ import store from "./store/index";
 
 import 'sweetalert2/dist/sweetalert2.min.css';
 import 'vue-select/dist/vue-select.css';
+import { VueReCaptcha } from 'vue-recaptcha-v3';
 
 const pinia = createPinia();
 pinia.use(piniaPluginPersistedstate);
@@ -35,6 +36,9 @@ app.use(router)
 app.use(VueSweetalert2)
 app.use(i18n)
 app.use(abilitiesPlugin, ability)
+app.use(VueReCaptcha, {
+    siteKey: window.config.recaptchaSiteKey, // Reemplaza con tu clave del sitio
+});
 app.component('Pagination', Bootstrap5Pagination)
 app.component("v-select", vSelect);
 app.mount('#app')

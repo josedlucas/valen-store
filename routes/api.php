@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\CarController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\CategoryGrouperController;
 use App\Http\Controllers\Api\ColorController;
+use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\PermissionController;
 use App\Http\Controllers\Api\ProductController;
@@ -62,6 +63,7 @@ Route::get('get-products', [ProductController::class, 'getProducts']);
 
 
 
+Route::post('contact', [ContactController::class, 'contact']);
 Route::get('get-category-products/{id}', [ProductController::class, 'getCategoryByProducts']);
 Route::get('get-product/{id}', [ProductController::class, 'getProduct']);
 Route::get('get-products-interest/{id}', [ProductController::class, 'getProductsInterest']);

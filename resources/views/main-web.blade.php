@@ -3,6 +3,7 @@
         'appName' => config('app.name'),
         'locale' => $locale = app()->getLocale(),
         'locales' => config('app.locales'),
+        'recaptchaSiteKey' => config('services.recaptcha.sitekey'),
     ];
 @endphp
     <!doctype html>

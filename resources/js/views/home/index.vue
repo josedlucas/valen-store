@@ -23,7 +23,7 @@
         <div class="container-xl mt-xl-n14 pb-xl-6 mt-n7">
             <carousel v-bind="carouselSettingsSection2">
                 <slide v-for="slide in slidersSection2" :key="slide" >
-                    <RouterLink to="" :class="'item align-items-center  d-flex m-4 m-md-auto m-xxl-auto m-lg-auto position-relative '+slide.class" href="">
+                    <RouterLink :to="{ name: 'public-products.index', query: { grouper: slide.grouper }}" :class="'item align-items-center  d-flex m-4 m-md-auto m-xxl-auto m-lg-auto position-relative '+slide.class" href="">
                         <img :src="slide.image" class="w-xl-85 w-100 mx-auto"/>
                         <div class="hover-content" style="display: none;">
                             <img :src="slide.imageTop" class="w-xl-30 mx-auto"/>
@@ -140,19 +140,22 @@ const slidersSection2 = [
         imageTop: imagesTop2,
         image: image1,
         title: 'CALZADO',
-        class: 'hover-action-1'
+        class: 'hover-action-1',
+        grouper: 4
     },
     {
         imageTop: imagesTop1,
         image: image2,
         title: 'INDUMENTARIA',
-        class: 'hover-action-2'
+        class: 'hover-action-2',
+        grouper: 1
     },
     {
         imageTop: imagesTop3,
         image: image3,
         title: 'PROTECCÍON',
-        class: 'hover-action-3'
+        class: 'hover-action-3',
+        grouper: 5
     }
 ]
 const carouselSettingsSection2 = {

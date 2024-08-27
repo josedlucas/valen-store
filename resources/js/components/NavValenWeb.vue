@@ -32,19 +32,108 @@
             <div class="col-md-4 d-flex d-md-none col-2 justify-content-end">
                 <RouterLink :to="{ name: 'car.index' }" class="nav-link mx-auto d-block" href="./contact">
                     <img src="../../valenweb/assets/images/icons/car.svg" alt="Lupa" width="25px" height="25px" />
+                    <span class="cart-number" v-if="cartCount" >{{cartCount}}</span>
                 </RouterLink>
             </div>
             <!-- meno in mobile dropdown-->
-            <div class="collapse col-md-4 d-md-none ps-4 ps-md-0" id="main_nav">
+            <div class="collapse col-md-4 d-md-none px-4 mt-4 ps-md-0 w-100" id="main_nav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <RouterLink :to="{ name: 'home' }" class="nav-link">HOME</RouterLink>
+                    <li class="nav-item mt-4">
+                        <SearchValen @close="toggleSearchEmit" class="animate" />
+                    </li>
+                    <li class="nav-item dropdown mt-4">
+                        <a class="nav-link dropdown-toggle fs-16 d-flex" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span>CALZADO DE SEGURIDAD</span>
+                            <span class="ms-auto d-block">
+                                <svg class="ms-auto" width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.50012 1.36572L7.9906 7.85626L1.50012 14.3468" stroke="#FFCF2F" stroke-width="2"/>
+                                </svg>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end position-relative" aria-labelledby="navbarDropdown">
+                            <div v-for="calzadoSeguridad in categoryList">
+                                <li v-if="calzadoSeguridad.category_grouper_id.id === 4" >
+                                    <RouterLink  to=""  @click="redirect({ name: 'public-products.index', query: { grouper: calzadoSeguridad.category_grouper_id.id, category: calzadoSeguridad.id }})" class="dropdown-item fw-lighter">{{ calzadoSeguridad.name }}</RouterLink>
+                                </li>
+                            </div>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fs-16 d-flex" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span>ROPA DE TRABAJO</span>
+                            <span class="ms-auto d-block">
+                                <svg class="ms-auto" width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.50012 1.36572L7.9906 7.85626L1.50012 14.3468" stroke="#FFCF2F" stroke-width="2"/>
+                                </svg>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end position-relative" aria-labelledby="navbarDropdown">
+                            <div v-for="ropaTrabajo in categoryList">
+                                <li v-if="ropaTrabajo.category_grouper_id.id === 1" >
+                                    <RouterLink to="" @click="redirect({ name: 'public-products.index', query: { grouper: ropaTrabajo.category_grouper_id.id, category: ropaTrabajo.id }})" class="dropdown-item">{{ ropaTrabajo.name }}</RouterLink>
+                                </li>
+                            </div>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fs-16 d-flex" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span>PROTECCION PERSONAL</span>
+                            <span class="ms-auto d-block">
+                                <svg class="ms-auto" width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.50012 1.36572L7.9906 7.85626L1.50012 14.3468" stroke="#FFCF2F" stroke-width="2"/>
+                                </svg>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end position-relative" aria-labelledby="navbarDropdown">
+                            <div v-for="procteccionPersonal in categoryList">
+                                <li v-if="procteccionPersonal.category_grouper_id.id === 5" >
+                                    <RouterLink to="" @click="redirect({ name: 'public-products.index', query: { grouper: procteccionPersonal.category_grouper_id.id, category: procteccionPersonal.id }})"  class="dropdown-item fw-lighter">{{ procteccionPersonal.name }}</RouterLink>
+                                </li>
+                            </div>
+                        </ul>
+                    </li>
+                    <li class="nav-item mt-4">
+                        <RouterLink to="" @click="toggleMenu({ name: 'home' })" class="nav-link fs-16 d-flex">
+                            <span>HOME</span>
+                            <span class="ms-auto d-block">
+                                <svg class="ms-auto" width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.50012 1.36572L7.9906 7.85626L1.50012 14.3468" stroke="#FFCF2F" stroke-width="2"/>
+                                </svg>
+                            </span>
+                        </RouterLink>
                     </li>
                     <li class="nav-item">
-                        <RouterLink :to="{ name: 'about.index' }" class="nav-link">NOSOTROS</RouterLink>
+                        <RouterLink to="" @click="toggleMenu({ name: 'about.index' })" class="nav-link fs-16 d-flex">
+                            <span>NOSOTROS</span>
+                            <span class="ms-auto d-block">
+                                <svg class="ms-auto" width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.50012 1.36572L7.9906 7.85626L1.50012 14.3468" stroke="#FFCF2F" stroke-width="2"/>
+                                </svg>
+                            </span>
+                        </RouterLink>
                     </li>
                     <li class="nav-item">
-                        <RouterLink :to="{ name: 'contact.index' }" class="nav-link">CONTACTO</RouterLink>
+                        <RouterLink to="" @click="toggleMenu({ name: 'contact.index' })" class="nav-link fs-16 d-flex" data-bs-toggle="collapse" data-bs-target="#main_nav">
+                            <span>CONTACTO</span>
+                            <span class="ms-auto d-block">
+                                <svg class="ms-auto" width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.50012 1.36572L7.9906 7.85626L1.50012 14.3468" stroke="#FFCF2F" stroke-width="2"/>
+                                </svg>
+                            </span>
+                        </RouterLink>
+                    </li>
+                    <li class="my-5 px-4">
+                        <div class="d-flex align-content-start">
+                            <a class="d-flex d-md-block justify-content-center" href="mailto:xxxxxxxxx@example.com">
+                                <img class="ms-md-4 w-xl-60 w-70" src="../../valenweb/assets/images/icons/email.png" />
+                            </a>
+                            <a class="ms-md-3 d-flex d-md-block justify-content-center" href="tel:xxxxxxxxx">
+                                <img class="ms-md-4 w-xl-60 w-70" src="../../valenweb/assets/images/icons/call.png" />
+                            </a>
+                            <a class="d-flex d-md-block justify-content-center ms-md-3" href="https://www.instagram.com/xxxxxxxxx/">
+                                <img class="ms-md-4 w-xl-60 w-70" src="../../valenweb/assets/images/icons/instagram.png" />
+                            </a>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -64,7 +153,7 @@
                     <li class="nav-item ms-lg-4 d-flex align-items-center">
                         <RouterLink :to="{ name: 'car.index' }" class="nav-link" >
                             <img src="../../valenweb/assets/images/icons/car.svg" alt="Lupa" />
-                            <!-- <span class="cart-number" id="conterCart">21</span>-->
+                            <span class="cart-number" v-if="cartCount" >{{cartCount}}</span>
                         </RouterLink>
                     </li>
                 </ul>
@@ -137,11 +226,18 @@ import {computed, onMounted, ref} from "vue";
 import {useAuthStore} from "@/store/auth";
 import useCategories from "@/composables/categories";
 import SearchValen from "@/components/searchValen.vue";
+import {useCartStore} from "@/composables/cartStore";
 import router from "@/routes";
+import routes from "@/routes";
 const auth = useAuthStore()
+
 let viewSarch = ref(false);
+const cartStore = useCartStore();
+
+let cartCount = computed(() => cartStore.cartCount);
 
 const {categoryList , getCategoryList } = useCategories();
+
 
 const user = computed(() => auth.user);
 const { processing, logout } = useAuth();
@@ -156,12 +252,21 @@ const toggleSearchEmit = (show) => {
 const toggleSearch = () => {
     viewSarch.value = !viewSarch.value;
 };
+
+const toggleMenu = (route) => {
+    if (window.innerWidth < 992) {
+        document.getElementById('main_nav').classList.toggle('show');
+    }
+    routes.push(route);
+}
+
 const toggleDropdown = (event) => {
     event.preventDefault();
     isDropdownVisible.value = !isDropdownVisible.value;
 };
 
 const redirect = (routeName) => {
+    dropdownClass.value = dropdownClass.value === 'dropdown-menu' ? 'dropdown-menu show' : 'dropdown-menu';
     isDropdownVisible.value = false;
     router.push(routeName);
 }

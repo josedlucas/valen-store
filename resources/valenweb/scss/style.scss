@@ -92,6 +92,11 @@ header{
         height: 100%;
         position: absolute;
     }
+    @media (max-width: 768px) {
+        &::before {
+            display: none;
+        }
+    }
 }
 .owl-carousel.products-carousel button.owl-dot {
     background: #acacac !important;

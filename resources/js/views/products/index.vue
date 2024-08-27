@@ -1,7 +1,7 @@
 <template>
     <section id="section3Product">
         <div class="container col-md-9 col-10 mx-auto">
-            <div class="mt-md-5">
+            <div class="mt-5">
                 <h4 class="text-warning fs-7 fw-light d-flex align-items-center">
                     {{
                         categoryList.find(category => category.id === params.category)?.name ??
@@ -26,13 +26,13 @@
                     </RouterLink>
                 </div>
             </div>
-            <div class="row py-lg-5 py-5">
-                <div class="col-lg-3 col-sm-6 mb-4" v-for="product in products?.data" :key="product.id">
+            <div class="row py-lg-5 py-5 py-3">
+                <div class="col-lg-3 col-sm-6 col-6 mb-4" v-for="product in products?.data" :key="product.id">
                     <RouterLink :to="{ name: 'public-products.details', params: { id: product.id } }" class="card bg-transparent border-0 text-style-none">
                         <img class="rounded-2" :src="getImageUrl(product)" alt="..." />
-                        <div class="card-body pt-2 ps-2">
-                            <small class="fs-xl-14" v-for="category in product.categories" :key="category.id">{{ category.name }}</small>
-                            <h5 class="mt-lg-1 card-title font-size-lg-22 font-size-md-21 fw-bold" style="text-transform: uppercase;">{{ product.title }}</h5>
+                        <div class="card-body pt-md-2  pt-0 ps-2">
+                            <small class="fs-xl-14 fs-12" v-for="category in product.categories" :key="category.id">{{ category.name }}</small>
+                            <h5 class="mt-lg-1 card-title fs-xl-22 fs-14 fw-bold" style="text-transform: uppercase;">{{ product.title }}</h5>
                         </div>
                     </RouterLink>
                 </div>
