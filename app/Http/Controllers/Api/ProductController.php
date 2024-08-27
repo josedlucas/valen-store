@@ -114,6 +114,14 @@ class ProductController extends Controller
             $size = Size::findMany($request->sizes);
             $product->sizes()->sync($size);
 
+
+            // Manejar múltiples archivos de tipo thumbnail
+            if ($request->hasFile('thumbnail')) {
+                foreach ($request->file('thumbnail') as $file) {
+                    $product->addMedia($file)->preservingOriginal()->toMediaCollection('images');
+                }
+            }
+
             return new ProductResource($product);
         }
     }
