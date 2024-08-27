@@ -78,12 +78,7 @@ export default [
                 path: 'car',
                 name: 'car.index',
                 component: () => import('../views/car/car.vue'),
-            },
-            {
-                path: 'login',
-                name: 'auth.login'
             }
-
         ]
     },
     {
