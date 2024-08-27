@@ -62,7 +62,7 @@
                         Industrial con el objetivo de proporcionar soluciones <br class="d-md-block d-xxl-block d-lg-block d-none" />
                         integrales en seguridad laboral para las empresas locales.
                     </p>
-                    <a class="btn btn-warning rounded-0 my-xxxl-4">CONOCER MÁS</a>
+                    <RouterLink :to="{name: 'about.index'}" class="btn btn-warning rounded-0 my-xxxl-4">CONOCER MÁS</RouterLink>
                 </div>
             </div>
         </div>
@@ -112,7 +112,6 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 const carouselSettingsHome = {
     itemsToShow: 1,
     snapAlign: 'center',
-    wrapAround: true
 }
 // slider section 2
 import imagesTop1 from '../../../valenweb/assets/images/home/section2/icono-chaleco.svg';
@@ -169,7 +168,8 @@ const carouselSettingsSection2 = {
         },
         768: {
             itemsToShow: 3,
-            wrapAround: true,
+            wrapAround: false,
+            pagination: true
         }
     }
 }
@@ -197,7 +197,7 @@ const slidersSection4 = [
 const carouselSettingsSection4 = {
     transition: '1500',
     itemsToShow: 1,
-    wrapAround: true,
+    wrapAround: false,
     autoplay: 3000
 }
 
@@ -227,7 +227,7 @@ const slidersSection5 = [
 ]
 const carouselSettingsSection5 = {
     transition: '1500',
-    wrapAround: true,
+    wrapAround: false,
     autoplay: 3000,
     breakpoints: {
         0: {

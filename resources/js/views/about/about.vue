@@ -35,7 +35,7 @@
         <div class="container-xl mx-auto row mt-xl-n24 mt-xxl-n25 mt-n37">
             <div class="col-lg-5 col-md-5 col-xxl-6 col-xl-6 ps-xl-7 order-md-0 order-1">
                 <img class="w-xxl-60 w-xl-75 w-70 d-none d-md-block" src="../../../valenweb/assets/images/about-us/section2/img.png" /><img class="w-xxl-60 w-xl-75 w-70 mx-auto d-md-none d-block mt-4" src="../../../valenweb/assets/images/about-us/section2/img.png" />
-                <a class="btn btn-outline-dark rounded-0 mt-lg4 mt-md-4 mt-4 d-md-none d-block">CATÁLOGO DE PRODUCTOS</a>
+                <RouterLink :to="{ name: 'public-products.index' }" class="btn btn-outline-dark rounded-0 mt-lg4 mt-md-4 mt-4 d-md-none d-block">CATÁLOGO DE PRODUCTOS</RouterLink>
             </div>
             <div class="col-lg-7 col-md-7 col-xxl-6 col-xl-6 d-flex align-items-center order-md-1 order-0">
                 <div>
@@ -127,7 +127,5 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 
 const carouselSettingsAbout = {
     itemsToShow: 1,
-    snapAlign: 'center',
-    wrapAround: true
 }
 </script>

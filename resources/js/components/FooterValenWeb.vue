@@ -37,13 +37,13 @@
                 </div>
                 <div class="col-xl-3 d-flex justify-content-xl-center col-sm-6 col-10 mt-lg-0 mt-sm-auto mx-auto justify-content-sm-end justify-content-start mt-1 pt-sm-0 pt-4">
                     <div class="d-flex align-content-start">
-                        <a class="d-flex d-md-block justify-content-center" href="mailto:xxxxxxxxx@example.com">
+                        <a class="d-flex d-md-block justify-content-center" href="mailto:ventas.valenindumentaria@gmail.com">
                             <img class="ms-md-4 w-xl-60 w-60" src="../../valenweb/assets/images/icons/email.png" />
                         </a>
-                        <a class="ms-md-3 d-flex d-md-block justify-content-center" href="tel:xxxxxxxxx">
+                        <a class="ms-md-3 d-flex d-md-block justify-content-center" href="tel:02994585083">
                             <img class="ms-md-4 w-xl-60 w-60" src="../../valenweb/assets/images/icons/call.png" />
                         </a>
-                        <a class="d-flex d-md-block justify-content-center ms-md-3" href="https://www.instagram.com/xxxxxxxxx/">
+                        <a class="d-flex d-md-block justify-content-center ms-md-3" href="https://www.instagram.com/valenindumentariaaa/?hl=es-la">
                             <img class="ms-md-4 w-xl-60 w-60" src="../../valenweb/assets/images/icons/instagram.png" />
                         </a>
                     </div>

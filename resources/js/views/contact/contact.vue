@@ -19,7 +19,7 @@
         <div>
             <iframe
                 class="maps mt-n5"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26558.016502557097!2d-59.66526605!3d-33.689483599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95ba22ed0eb1a55f%3A0xe5f2bb57c8ee993a!2sSan%20Pedro%2C%20Provincia%20de%20Buenos%20Aires%2C%20Argentina!5e0!3m2!1ses-419!2sve!4v1703288317485!5m2!1ses-419!2sve"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3182.7632758365353!2d-68.0389061!3d-38.970068!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x960a318e859c5da5%3A0x260f0227ab8b818b!2sEl%20Choc%C3%B3n%201433%2C%20Q8300%20Neuqu%C3%A9n%2C%20Argentina!5e1!3m2!1sen!2sve!4v1724778642169!5m2!1sen!2sve"
                 height="450"
                 style="border: 0;"
                 allowfullscreen=""
@@ -29,10 +29,11 @@
             <div class="container-xl px-xl-5 mt-md-0 mt-n8 px-4 mx-auto d-block">
                 <div class="col-xl-3 bg-white mt-xl-n15 position-absolute px-xxl-2 py-xxl-4 px-xl-2 py-xl-5 px-2 py-5">
                     <div>
-                        <a class="fw-light fs-xl-13 text-decoration-none" href="tel:02994585083"><img class="me-3" src="../../../valenweb/assets/images/icons/call-2.svg" />(0299) - 4585083</a>
+                        <a class="fw-light fs-xl-13 text-decoration-none" href="tel:02994585083">
+                            <img class="me-3" src="../../../valenweb/assets/images/icons/call-2.svg" />(0299) - 4585083</a>
                     </div>
                     <div class="my-xl-3 my-3">
-                        <a class="fw-light fs-xl-13 my-3 text-decoration-none" href="mailto:ventas@valenindumentaria.com.ar"><img class="me-3" src="../../../valenweb/assets/images/icons/email-2.svg" />ventas@valenindumentaria.com.ar</a>
+                        <a class="fw-light fs-xl-13 my-3 text-decoration-none" href="mailto:ventas.valenindumentaria@gmail.com"><img class="me-3" src="../../../valenweb/assets/images/icons/email-2.svg" />ventas@valenindumentaria.com.ar</a>
                     </div>
                     <div>
                         <a class="fw-light fs-xl-13 text-decoration-none" href=""><img class="me-3" src="../../../valenweb/assets/images/icons/address.svg" />El Chocón 1433, Neuquén Capital</a>
