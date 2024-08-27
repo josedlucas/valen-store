@@ -156,6 +156,17 @@ class ProductController extends Controller
 
     }
 
+
+
+    public function getProductsInterest($id)
+    {
+        $produc = Product::with('categories', 'colors', 'sizes', 'user', 'media')->findOrFail($id);
+        $products = Product::whereHas('categories', function ($query) use ($produc) {
+            $query->whereIn('category_id', $produc->categories->pluck('id'));
+        })->paginate();
+        return  ProductResource::collection($products);
+    }
+
     public function getCategoryByProducts($id)
     {
         $products = Product::whereRelation('categories', 'category_id', '=', $id)->paginate();

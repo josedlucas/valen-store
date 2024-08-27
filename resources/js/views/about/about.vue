@@ -22,7 +22,7 @@
                             laboral para las empresas locales.
                         </p>
                         <div class="mt-lg-5 mt-md-5 mt-10 d-flex justify-content-center justify-content-md-start">
-                            <a class="btn btn-warning" href="./products.html">CONTÁCTANOS</a>
+                            <RouterLink :to="{ name: 'contact.index' }" class="btn btn-warning">CONTÁCTANOS</RouterLink>
                         </div>
                     </div>
                 </div>
@@ -87,7 +87,9 @@
                         Nos especializamos en la fabricación de ropa de trabajo de primera calidad para proteger a tus trabajadores mientras ofrecen comodidad y durabilidad en cada jornada laboral. Desde camisas hasta pantalones de jean
                         y pantalones cargo reforzados, pasando por camperas térmicas, buzos y mamelucos, cada pieza está diseñada con meticulosa atención a la seguridad y el rendimiento.
                     </p>
-                    <div class="mt-5 mb-4 d-flex justify-content-center justify-content-xl-start"><a class="btn btn-warning rounded-0 mt-lg-4 mt-md-4">CONOCÉ VALEN.NQN</a></div>
+                    <div class="mt-5 mb-4 d-flex justify-content-center justify-content-xl-start">
+                        <RouterLink :to="{ name: 'public-products.index', query: { grouper: 1, category: 8}}" class="btn btn-warning rounded-0 mt-lg-4 mt-md-4">CONOCÉ VALEN.NQN</RouterLink>
+                    </div>
                 </div>
             </div>
             <div class="col-xl-7"><img class="offset-xl-3 mt-xl-n4 w-xl-90 w-xxl-85 w-100 mt-4" src="../../../valenweb/assets/images/about-us/section4/img.png" alt="" srcset="" /></div>
@@ -97,7 +99,7 @@
         <div class="container-xl mb-xl-7 mt-xl-9 mt-xxl-12 mt-10">
             <div class="row">
                 <div class="col-lg-6 col-md-6">
-                    <div class="bg-light px-xl-5 py-xl-4 me-xl-3 py-4 px-4">
+                    <div class="bg-light px-xl-5 py-xl-6 me-xl-3 py-4 px-4">
                         <h6 class="fw-light fs-xl-35 fs-25">MISIÓN</h6>
                         <p class="fs-13">
                             Proteger y cuidar a los trabajadores en todos los entornos laborales mediante la provisión de productos de alta calidad y un servicio excepcional, cumpliendo con las normativas de seguridad y contribuyendo al
@@ -106,7 +108,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 px-lg-0 my-md-0 my-4">
-                    <div class="bg-light px-xl-5 py-xl-4 ms-xl-3 py-4 px-4">
+                    <div class="bg-light px-xl-5 py-xl-6 ms-xl-3 py-4 px-4">
                         <h6 class="fw-light fs-xl-35 fs-25">VISIÓN</h6>
                         <p class="fs-13">
                             Convertirnos en el líder regional en seguridad laboral, ofreciendo soluciones innovadoras y personalizadas que garanticen la protección y el bienestar de los trabajadores, estableciendo estándares de

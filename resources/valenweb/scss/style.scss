@@ -81,10 +81,17 @@ body{
 header .dropdown-toggle:after{
   display: none;
 }
-.logo-background{
-    //background-image: url('background.png');
-    background-size: contain;
-    background-position: center;
+header{
+    position: relative;
+    &::before {
+        content: "";
+        background-image: url('../assets/images/header/background.png');
+        background-size: contain;
+        background-position: center;
+        width: 30rem;
+        height: 100%;
+        position: absolute;
+    }
 }
 .owl-carousel.products-carousel button.owl-dot {
     background: #acacac !important;

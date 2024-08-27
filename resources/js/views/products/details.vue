@@ -2,7 +2,7 @@
     <section id="section1ProductDetail">
         <div class="container col-xl-9 mx-xl-auto">
             <div class="row py-5">
-                <div class="col-lg-6">
+                <div class="col-lg-5">
                     <carousel id="gallery" v-bind="carouselSettingsProductDetail" v-model="currentSlide">
                         <slide class="carousel__item zoom-container" v-for="(slide, index) in product?.media" :key="slide"  @mousemove="handleMouseMove" @mouseleave="resetZoom">
                             <img :src="slide?.original_url ?? ''" class="img-width-100 rounded-3 zoom-image" :ref="setZoomImageRef(index)" />
@@ -123,6 +123,22 @@
             </div>
         </div>
     </div>
+    <img src="../../../valenweb/assets/images/product-detail/background.svg" class="w-100 mt-5 mb-6" alt="">
+    <section>
+        <div class="container col-xl-9 mx-xl-auto">
+            <carousel id="thumbnails" v-bind="carouselSettingsInterests" ref="carousel" class="thumbnail mt-xl-3">
+                <slide  v-for="(slide, index) in products" :key="slide" class="m-4">
+                    <a :href="'/products/' + slide.id"  class="card bg-transparent border-0 text-style-none">
+                        <img class="rounded-2" :src="slide.original_image ?? ''" alt="..." />
+                        <div class="card-body pt-2 ps-2 text-start">
+                            <small class="fs-xl-14" v-for="category in slide.categories" :key="category.id">{{ category.name }}</small>
+                            <h5 class="mt-lg-1 card-title font-size-lg-22 font-size-md-21 fw-bold" style="text-transform: uppercase;">{{ slide.title }}</h5>
+                        </div>
+                    </a>
+                </slide>
+            </carousel>
+        </div>
+    </section>
 </template>
 
 <script setup>
@@ -182,7 +198,7 @@ const carouselSettingsProductDetailThumbnails = {
     wrapAround: true,
     breakpoints: {
         0:{
-            itemsToShow: 3
+            itemsToShow: 3,
         },
         768:{
             itemsToShow: 5
@@ -194,6 +210,20 @@ const carouselSettingsProductDetailThumbnails = {
 
 const carouselSettingsProductDetail = {
     itemsToShow: 1,
+    snapAlign: 'center',
+    wrapAround: false
+}
+
+
+const carouselSettingsInterests = {
+    itemsToShow: 4,
+    wrapAround: true,
+    snapAlign: 'center',
+}
+
+
+const carouselSettingsSizes = {
+    itemsToShow: 5,
     snapAlign: 'center',
     wrapAround: false
 }
@@ -237,6 +267,7 @@ function resetZoom() {
 
 
 const product = ref({});
+const products = ref({});
 const categories = ref({});
 const colors = ref({});
 const sizes = ref({});
@@ -245,6 +276,9 @@ const sizes = ref({});
 onMounted( () => {
     axios.get('/api/get-product/' + route.params.id).then(({data}) => {
         product.value = data;
+    })
+    axios.get('/api/get-products-interest/' + route.params.id).then(({data}) => {
+        products.value = data.data;
     })
     axios.get('/api/category-list').then(({data}) => {
         categories.value = data.data;

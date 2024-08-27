@@ -6,7 +6,7 @@
                     <img class="d-md-block d-xxl-block d-lg-block d-none w-100" src="../../../valenweb/assets/images/home/section1/img.png" />
                     <img class="d-md-none d-xxl-none d-lg-none d-block w-100" src="../../../valenweb/assets/images/home/section1/img_m.png" />
                     <div class="mt-xl-n18 pb-xl-20 mt-xxl-n19 mt-n16 pb-11">
-                        <h1 class="text-warning text-center fw-lighter font-size-xxxl-55 fs-xl-45 fs-33">
+                        <h1 class="text-warning text-center fw-bold font-size-xxxl-55 fs-xl-45 fs-33">
                             ROPA DE <br class="d-md-none d-xxl-none d-lg-none" />
                             SEGURIDAD
                         </h1>
@@ -93,7 +93,7 @@
     <section class="py-xl-10 py-0" id="section5">
         <div class="container-xl bg-white rounded-0 pt-xl-3 px-0 pb-xl-6 pb-6 pt-5 rounded-md-4">
             <div class="d-grid pt-xl-3 pb-md-3 pb-xxl-3 pb-lg-3 pb-xxxl-5 pt-6 pb-4">
-                <h6 class="fs-2 text-center mx-auto z-1 bg-white px-xl-4 mb-xxxl-0 fs-xl-24 fs-20" style="width: fit-content;">Marcas con las que trabajamos</h6>
+                <h6 class="fs-2 text-center mx-auto z-1 bg-white px-xl-4 mb-xxl-0 fs-xl-24 fs-20" style="width: fit-content;">Marcas con las que trabajamos</h6>
                 <img class="w-100 z-n1 mt-md-n4 mt-xxl-n4 mt-lg-n4 mb-md-5 mb-xxl-5 mb-lg-5 z-0 d-none d-md-block" src="../../../valenweb/assets/images/home/section5/raya.svg" />
             </div>
             <carousel v-bind="carouselSettingsSection5">
@@ -137,15 +137,15 @@ import markImage6 from '../../../valenweb/assets/images/home/section5/slider/img
 
 const slidersSection2 = [
     {
-        imageTop: imagesTop1,
+        imageTop: imagesTop2,
         image: image1,
-        title: 'INDUMENTARIA',
+        title: 'CALZADO',
         class: 'hover-action-1'
     },
     {
-        imageTop: imagesTop2,
+        imageTop: imagesTop1,
         image: image2,
-        title: 'CALZADO',
+        title: 'INDUMENTARIA',
         class: 'hover-action-2'
     },
     {
@@ -156,7 +156,9 @@ const slidersSection2 = [
     }
 ]
 const carouselSettingsSection2 = {
-    transition: 'slide',
+    transition: '1500',
+    autoplay: 3000,
+    pauseAutoplayOnHover: true,
     breakpoints: {
         0: {
             itemsToShow: 1,
@@ -164,7 +166,7 @@ const carouselSettingsSection2 = {
         },
         768: {
             itemsToShow: 3,
-            wrapAround: false
+            wrapAround: true,
         }
     }
 }
@@ -190,7 +192,7 @@ const slidersSection4 = [
     }
 ];
 const carouselSettingsSection4 = {
-    transition: 'slide',
+    transition: '1500',
     itemsToShow: 1,
     wrapAround: true,
     autoplay: 3000
@@ -221,7 +223,7 @@ const slidersSection5 = [
     }
 ]
 const carouselSettingsSection5 = {
-    transition: 'slide',
+    transition: '1500',
     wrapAround: true,
     autoplay: 3000,
     breakpoints: {
@@ -236,5 +238,10 @@ const carouselSettingsSection5 = {
 </script>
 
 <style scoped>
-
+ section{
+     background-color: #000000;
+ }
+ section.carousel{
+     background-color: transparent;
+ }
 </style>

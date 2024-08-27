@@ -16,11 +16,16 @@ class UserResetPasswordNotification extends ResetPasswordNotification
      */
     public function toMail($notifiable): MailMessage
     {
-        $resetUrl = url(config('app.url') . '/reset-password/' . $this->token .'?email='. $notifiable->getEmailForPasswordReset());
+        $resetUrl = url(config('app.url') . '/backoffice/reset-password/' . $this->token .'?email='. $notifiable->getEmailForPasswordReset());
         return (new MailMessage)
-            ->line('You are receiving this email because we received a password reset request for your account.')
-            ->action('Reset Password', $resetUrl)
-            ->line('If you did not request a password reset, no further action is required.');
+            ->subject('Restablece tu contraseña')
+            ->greeting('Hola!')
+            ->line('Recibiste este correo porque solicitaste restablecer tu contraseña.')
+            ->action('Restablecer contraseña', $resetUrl)
+            ->line('Este enlace expirará en 60 minutos.')
+            ->line('Si no solicitaste restablecer tu contraseña, no es necesario que realices ninguna acción.')
+            ->line('Si tienes problemas al hacer clic en el botón "Restablecer contraseña", copia y pega la URL de abajo en tu navegador:')
+            ->line($resetUrl);
     }
 
     /**

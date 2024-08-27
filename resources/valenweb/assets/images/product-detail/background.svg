@@ -1,0 +1,53 @@
+<svg width="1366" height="16" viewBox="0 0 1366 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0H1366V15.3046H0V0Z" fill="#FFDF30"/>
+    <mask id="mask0_2_2753" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1366" height="16">
+        <rect width="1366" height="16" fill="#FFDF30"/>
+    </mask>
+    <g mask="url(#mask0_2_2753)">
+        <path d="M-18.5 33.2857L27.4136 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M745.5 33.2857L791.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M164.5 33.2857L210.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M929.5 33.2857L975.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M348.5 33.2857L394.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M73.5 33.2857L119.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M837.5 33.2857L883.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M256.5 33.2857L302.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M1020.5 33.2857L1066.41 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M439.5 33.2857L485.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M1204.5 33.2857L1250.41 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M12.5 33.2857L58.4136 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M776.5 33.2857L822.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M195.5 33.2857L241.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M959.5 33.2857L1005.41 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M378.5 33.2857L424.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M1143.5 33.2857L1189.41 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M1111.5 33.2857L1157.41 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M103.5 33.2857L149.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M867.5 33.2857L913.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M287.5 33.2857L333.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M1051.5 33.2857L1097.41 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M470.5 33.2857L516.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M1234.5 33.2857L1280.41 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M42.5 33.2857L88.4136 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M806.5 33.2857L852.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M226.5 33.2857L272.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M990.5 33.2857L1036.41 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M409.5 33.2857L455.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M1173.5 33.2857L1219.41 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M134.5 33.2857L180.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M898.5 33.2857L944.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M317.5 33.2857L363.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M1081.5 33.2857L1127.41 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M501.5 33.2857L547.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M1265.5 33.2857L1311.41 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M531.5 33.2857L577.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M623.5 33.2857L669.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M1295.5 33.2857L1341.41 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M562.5 33.2857L608.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M653.5 33.2857L699.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M592.5 33.2857L638.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M684.5 33.2857L730.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M715.5 33.2857L761.414 -12.1421" stroke="black" stroke-width="10"/>
+        <path d="M1326.5 33.2857L1372.41 -12.1421" stroke="black" stroke-width="10"/>
+    </g>
+</svg>

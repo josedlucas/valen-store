@@ -59,8 +59,12 @@ Route::get('categorygrouper-list', [CategoryGrouperController::class, 'getList']
 Route::get('color-list', [ColorController::class, 'getList']);
 Route::get('size-list', [SizeController::class, 'getList']);
 Route::get('get-products', [ProductController::class, 'getProducts']);
+
+
+
 Route::get('get-category-products/{id}', [ProductController::class, 'getCategoryByProducts']);
 Route::get('get-product/{id}', [ProductController::class, 'getProduct']);
+Route::get('get-products-interest/{id}', [ProductController::class, 'getProductsInterest']);
 
 
 // Search Prod

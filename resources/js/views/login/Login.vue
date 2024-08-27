@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="row justify-content-center align-items-center">
-            <div class="col-md-6" style="height: 500px">
+            <div class="col-md-6 mt-5 pt-5">
                 <div class="card border-0 shadow-sm">
                     <div class="card-body">
                         <form @submit.prevent="submitLogin">

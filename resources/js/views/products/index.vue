@@ -32,7 +32,7 @@
                         <img class="rounded-2" :src="getImageUrl(product)" alt="..." />
                         <div class="card-body pt-2 ps-2">
                             <small class="fs-xl-14" v-for="category in product.categories" :key="category.id">{{ category.name }}</small>
-                            <h5 class="mt-lg-1 card-title font-size-lg-22 font-size-md-21 fw-light" style="text-transform: uppercase;">{{ product.title }}</h5>
+                            <h5 class="mt-lg-1 card-title font-size-lg-22 font-size-md-21 fw-bold" style="text-transform: uppercase;">{{ product.title }}</h5>
                         </div>
                     </RouterLink>
                 </div>
