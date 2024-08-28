@@ -55,7 +55,7 @@ class OrderController extends Controller
         // borrar carrito
         Car::where('session_id', $session_id)->delete();
 
-        Mail::to('jsdlcs266@gmail.com')->send(new OrderMail($order));
+        Mail::to(' ventas.valenindumentaria@gmail.com')->send(new OrderMail($order));
 
         return new OrderResource($order);
     }

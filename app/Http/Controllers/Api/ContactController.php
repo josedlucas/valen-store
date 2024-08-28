@@ -11,7 +11,7 @@ class ContactController extends Controller
 {
 
     public function contact(StoreContactRequest $request){
-        Mail::to('jsdlcs266@gmail.com')->send(new ContactMessageReceived($request->all()));
+        Mail::to('ventas.valenindumentaria@gmail.com')->send(new ContactMessageReceived($request->all()));
         return response()->json(['success' => true], 200);
     }
 
