@@ -46,9 +46,6 @@ class CategoryController extends Controller
 
         $category = Category::create($request->validated());
 
-        $categorygrouper = CategoryGrouper::find($request->categorygrouper);
-        $category->categoryGrouper()->attach($categorygrouper);
-
         return new CategoryResource($category);
     }
 
