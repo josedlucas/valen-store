@@ -94,7 +94,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr v-for="post in categorygroupers.data" :key="post.id">
+                            <tr v-for="(post, index) in categorygroupers.data" :key="post.id">
                                 <td class="px-6 py-4 text-sm">
                                     {{ post.id }}
                                 </td>
@@ -109,7 +109,7 @@
                                                  :to="{ name: 'categorygroupers.edit', params: { id: post.id } }"
                                                  class="badge bg-success">Editar
                                     </router-link>
-                                    <a href="#" v-if="can('category-delete')" @click.prevent="deleteCategoryGrouper(post.id)"
+                                    <a  href="#" v-if="can('category-delete') && ![1,4,5].includes(post.id) " @click.prevent="deleteCategoryGrouper(post.id)"
                                        class="ms-2 badge bg-danger">Eliminar</a>
                                 </td>
                             </tr>
