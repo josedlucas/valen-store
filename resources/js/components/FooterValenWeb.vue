@@ -15,13 +15,13 @@
                             <RouterLink :to="{ name: 'public-products.index' }" class="dropdown-item ms-3 fs-10"> CATÁLOGO DE PRODUCTOS</RouterLink>
                         </li>
                         <li class="mega-menu-item">
-                            <RouterLink to="/" class="dropdown-item ms-3 fs-10"> ROPA DE TRABAJO</RouterLink>
+                            <RouterLink :to="{ name: 'public-products.index', query: { grouper: 1 } }" class="dropdown-item ms-3 fs-10"> ROPA DE TRABAJO</RouterLink>
                         </li>
                         <li class="mega-menu-item">
-                            <RouterLink to="/" class="dropdown-item ms-3 fs-10"> ZALZADO DE SEGURIDAD</RouterLink>
+                            <RouterLink :to="{ name: 'public-products.index', query: { grouper: 4 } }" class="dropdown-item ms-3 fs-10"> CALZADO DE SEGURIDAD</RouterLink>
                         </li>
                         <li class="mega-menu-item">
-                            <RouterLink to="/" class="dropdown-item ms-3 fs-10"> PROTECCIÓN PERSONAL</RouterLink>
+                            <RouterLink :to="{ name: 'public-products.index', query: { grouper: 5 } }" class="dropdown-item ms-3 fs-10"> PROTECCIÓN PERSONAL</RouterLink>
                         </li>
                     </ul>
                 </div>

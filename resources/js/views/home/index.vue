@@ -70,11 +70,11 @@
     <section class="py-md-3 py-xxl-3 py-lg-3" id="section4">
         <img class="w-100 d-md-block d-none" src="../../../valenweb/assets/images/home/section4/background.svg" /><img class="w-100 d-md-none d-block" src="../../../valenweb/assets/images/home/section4/background-m.svg" />
         <div class="container-xl mt-xl-n18 mt-xl-n19 mt-n24 col-10 mx-auto col-xl">
-            <carousel v-bind="carouselSettingsSection4">
-                <slide v-for="slide in slidersSection4" :key="slide" class="w-100 mx-auto">
+            <carousel v-bind="carouselSettingsSection4" class="slider4">
+                <slide v-for="slide in slidersSection4" :key="slide" class="px-3 px-xl-0">
                     <div class="row">
                         <div class="col-md-6 pe-xl-6 pt-xl-5 text-start">
-                            <h3 class="text-white fw-lighter fs-xl-16 fs-16"> {{ slide.count }}</h3>
+                            <h3 class="text-white fw-lighter fs-xl-16 fs-16">{{ slide.count }}</h3>
                             <img class="w-10 my-4" src="../../../valenweb/assets/images/home/section4/comillas.svg" />
                             <p class="text-white text-justify fs-xl-20 fw-lighter fs-14">
                                 {{ slide.description }}
@@ -195,12 +195,11 @@ const slidersSection4 = [
 ];
 const carouselSettingsSection4 = {
     transition: '1500',
-    itemsToShow: 1,
-    itemsToScroll: 1,
     snapAlign: 'center',
     wrapAround: true,
+    itemsToShow: 1,
     autoplay: 3000,
-    slideWidth: '100%',
+    pauseAutoplayOnHover: true
 }
 
 
@@ -249,6 +248,18 @@ const carouselSettingsSection5 = {
  }
  section.carousel{
      background-color: transparent;
+ }
+
+ @media (min-width: 1900px) and (max-width: 2000px) {
+   .slider4 {
+     zoom: 0.765;
+   }
+ }
+
+ @media (min-width: 2000px) {
+   .slider4 {
+     zoom: 1.45;
+   }
  }
 
 </style>

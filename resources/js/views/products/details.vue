@@ -1,6 +1,6 @@
 <template>
     <section id="section1ProductDetail">
-        <div class="container col-xl-9 mx-xl-auto">
+        <div class="container col-xl-9 mx-xl-auto col-11">
             <div class="row py-5">
                 <div class="col-lg-5">
                     <carousel id="gallery" v-bind="carouselSettingsProductDetail" v-model="currentSlide">
@@ -16,16 +16,24 @@
                 </div>
                 <form  @submit.prevent="submitForm" class="col-lg-6 ps-lg-5" >
                     <div class="pt-lg-2 pt-4">
-                        <span class="font-size-14" v-for="category in product?.categories">{{ category.name }}</span>
-                        <h1 class="fs-xl-35 fw-light">{{ product?.title }}</h1>
+                        <span class="font-size-14" v-for="category in product?.categories">
+                          {{ category.name }}
+                          <div class="raya-b w-10"></div>
+                        </span>
+                        <h1 class="fs-xl-35 fw-light pt-3">{{ product?.title }}</h1>
                     </div>
                     <div class="pt-lg-4 pt-4 pb-xl-5">
-                        <span class="font-size-14">DESCRIPCIÓN DEL PRODUCTO</span>
-                        <h4 class="mt-2 pt-2 fs-xl-18" v-html="product?.content">
-                        </h4>
+                        <span class="font-size-14">
+                          DESCRIPCIÓN DEL PRODUCTO
+                          <div class="raya-b w-10"></div>
+                        </span>
+                        <h4 class="mt-2 pt-3 fs-xl-18 fs-20" v-html="product?.content"></h4>
                     </div>
-                    <span class="font-size-14">ESPECIFICACIONES</span>
-                    <div class="pt-3 d-flex">
+                    <span class="font-size-14">
+                      ESPECIFICACIONES
+                      <div class="raya-b w-10"></div>
+                    </span>
+                    <div class="pt-4 d-flex">
                         <div v-for="(color, index) in product?.colors" class="me-2">
                             <input :value="color.id" class="btn-check" :id="`color${color.id}`" type="radio" name="color" autocomplete="off" v-model="productPost.color_id"  />
                             <label class="p-3 btn me-2" :style="`background-color: ${color.code};`" :for="`color${color.id}`"></label>
@@ -51,7 +59,7 @@
                     </div>
                     <div class="d-flex">
                         <InputCounter @update:count="receiveInputCounter" :count="1"/>
-                        <button class="btn btn-warning px-3 py-2 rounded-0 ms-md-3" type="submit">
+                        <button class="btn btn-warning px-3 py-2 rounded-0 ms-3" type="submit">
                             <span  v-if="isLoading">Processing...</span>
                             <span v-else>AGREGAR AL CARRITO</span>
                         </button>
@@ -123,7 +131,7 @@
             </div>
         </div>
     </div>
-    <img src="../../../valenweb/assets/images/product-detail/background.svg" class="w-100 mt-5 mb-6" alt="">
+    <img src="../../../valenweb/assets/images/product-detail/background.svg" class="w-100 mt-5 mb-xl-6 mb-3" alt="">
     <section>
         <div class="container col-xl-9 mx-xl-auto">
             <carousel id="thumbnails" v-bind="carouselSettingsInterests" ref="carousel" class="thumbnail mt-xl-3">
@@ -132,7 +140,7 @@
                         <img class="rounded-2" :src="slide.original_image ?? ''" alt="..." />
                         <div class="card-body pt-2 ps-2 text-start">
                             <small class="fs-xl-14" v-for="category in slide.categories" :key="category.id">{{ category.name }}</small>
-                            <h5 class="mt-lg-1 card-title font-size-lg-22 font-size-md-21 fw-bold" style="text-transform: uppercase;">{{ slide.title }}</h5>
+                            <h5 class="mt-lg-1 card-title fs-xl-22 fs-20 fw-bold" style="text-transform: uppercase;">{{ slide.title }}</h5>
                         </div>
                     </a>
                 </slide>
@@ -216,9 +224,16 @@ const carouselSettingsProductDetail = {
 
 
 const carouselSettingsInterests = {
-    itemsToShow: 4,
     wrapAround: true,
     snapAlign: 'center',
+    breakpoints: {
+        0:{
+            itemsToShow: 3,
+        },
+        768:{
+            itemsToShow: 4
+        }
+    }
 }
 
 
@@ -295,6 +310,11 @@ onMounted( () => {
 </script>
 
 <style>
+.raya-b:after{
+  position: absolute;
+  background-color: #525252;
+  width: 3%;
+}
 .carousel-wrapper {
     position: relative;
 }

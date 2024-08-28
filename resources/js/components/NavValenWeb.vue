@@ -163,13 +163,13 @@
             <div class="row ms-auto col-md-11">
                 <div class="col-lg-3 col-md-6 col-sm-6 d-flex justify-content-center">
                     <div>
-                        <div class="d-flex align-items-center mb-md-3">
+                        <RouterLink to="" @click="redirect({ name: 'public-products.index', query: { grouper: 1 } })" class="d-flex align-items-center mb-md-3">
                             <img src="../../valenweb/assets/images/header/mega-menu/img.png" width="50" />
                             <p class="text-warning mb-0 ms-md-4 fw-light">
                                 CALZADO <br class="d-md-block d-none" />
                                 DE SEGURIDAD
                             </p>
-                        </div>
+                        </RouterLink>
                         <ul class="ms-md-6 ps-md-3">
                             <div v-for="calzadoSeguridad in categoryList">
                                 <li class="mega-menu-item" v-if="calzadoSeguridad.category_grouper_id.id === 4" >
@@ -181,13 +181,13 @@
                 </div>
                 <div class="col-lg-5 col-md-6 col-sm-6 raya-s raya-e d-flex justify-content-center">
                     <div class="mx-5">
-                        <div class="d-flex align-items-center mb-md-3">
+                        <RouterLink to="" @click="redirect({ name: 'public-products.index', query: { grouper: 1 } })" class="d-flex align-items-center mb-md-3">
                             <img src="../../valenweb/assets/images/header/mega-menu/img_1.png" width="50" />
                             <p class="text-warning mb-0 ms-md-4 fw-light">
                                 ROPA DE <br class="d-md-block d-none" />
                                 TRABAJO
                             </p>
-                        </div>
+                        </RouterLink>
                         <ul class="ms-md-6 ps-md-3">
                             <div v-for="ropaTrabajo in categoryList">
                                 <li class="mega-menu-item" v-if="ropaTrabajo.category_grouper_id.id === 1" >
@@ -199,13 +199,13 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 d-flex justify-content-center">
                     <div>
-                        <div class="d-flex align-items-center mb-md-3">
+                        <RouterLink to="" @click="redirect({ name: 'public-products.index', query: { grouper: 5 } })" class="d-flex align-items-center mb-md-3">
                             <img src="../../valenweb/assets/images/header/mega-menu/img_2.png" width="50" />
                             <p class="text-warning mb-0 ms-md-4 fw-light">
                                 PROTECCIÓN <br class="d-md-block d-none" />
                                 PERSONAL
                             </p>
-                        </div>
+                        </RouterLink>
                         <ul class="ms-md-6 ps-md-3">
                             <div v-for="procteccionPersonal in categoryList">
                                 <li class="mega-menu-item" v-if="procteccionPersonal.category_grouper_id.id === 5" >

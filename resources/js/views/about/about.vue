@@ -50,7 +50,7 @@
                         SOLUCIONES INTEGRALES EN SEGURIDAD <br class="d-md-block d-none" />
                         LABORAL PARA LAS EMPRESAS LOCALES.
                     </h3>
-                    <a class="btn btn-outline-dark rounded-0 mt-lg-4 mt-md-4 mt-4 d-md-inline-block d-none">CATÁLOGO DE PRODUCTOS</a>
+                    <RouterLink :to="{ name: 'public-products.index' }"  class="btn btn-outline-dark rounded-0 mt-lg-4 mt-md-4 mt-4 d-md-inline-block d-none">CATÁLOGO DE PRODUCTOS</RouterLink>
                 </div>
             </div>
         </div>
