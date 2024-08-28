@@ -1,5 +1,5 @@
 <template>
-    <div class="row container-fluid my-4 h-100">
+    <div class="row  my-4 h-100">
         <div class="col-md-12">
             <div class="card border-0 shadow-sm">
                 <div class="card-body">

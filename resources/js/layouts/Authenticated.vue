@@ -4,8 +4,9 @@
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
         <!-- nav -->
         <navbar :class="[navClasses]" v-if="showNavbar" />
-
-        <router-view />
+        <div class="container-fluid">
+          <router-view />
+        </div>
 
         <!-- footer -->
         <app-footer v-show="showFooter" />

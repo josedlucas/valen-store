@@ -230,6 +230,7 @@ function submitForm() {
 function handleFileChange(event) {
     product.thumbnail = Array.from(event.target.files);
 }
+
 onMounted(() => {
     getCategoryList()
     getColorList()

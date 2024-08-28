@@ -48,7 +48,7 @@ const closeMenu = () => {
                             Logout
                         </a>
                     </li>
-                    <!--
+
                     <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                         <a href="#" @click="minimizeSidebar" class="p-0 nav-link text-white" id="iconNavbarSidenav">
                             <div class="sidenav-toggler-inner">
@@ -57,7 +57,7 @@ const closeMenu = () => {
                                 <i class="sidenav-toggler-line bg-white"></i>
                             </div>
                         </a>
-                    </li>
+                    </li><!--
                     <li class="px-3 nav-item d-flex align-items-center">
                         <a class="p-0 nav-link text-white" @click="toggleConfigurator">
                             <i class="cursor-pointer fa fa-cog fixed-plugin-button-nav"></i>

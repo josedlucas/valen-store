@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
+use App\Http\Resources\ProductEditResource;
 use App\Http\Resources\ProductResource;
 use App\Models\Category;
 use App\Models\Color;
 use App\Models\Product;
 use App\Models\Size;
 use Illuminate\Http\Request;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class ProductController extends Controller
 {
@@ -93,33 +95,38 @@ class ProductController extends Controller
         if ($product->user_id !== auth()->user()->id && !auth()->user()->hasPermissionTo('product-all')) {
             return response()->json(['status' => 405, 'success' => false, 'message' => 'You can only edit your own products']);
         } else {
-            return new ProductResource($product);
+            return new ProductEditResource($product);
         }
     }
 
-    public function update(Product $product, StoreProductRequest $request)
+    public function update($product, StoreProductRequest $request)
     {
+        $product = Product::find($product);
         $this->authorize('product-edit');
-        if ($product->user_id !== auth()->id() && !auth()->user()->hasPermissionTo('product-all')) {
+        if ($product->id !== auth()->id() && !auth()->user()->hasPermissionTo('product-all')) {
             return response()->json(['status' => 405, 'success' => false, 'message' => 'You can only edit your own products']);
         } else {
             $product->update($request->validated());
 
-            $category = Category::findMany($request->categories);
+            $categories = explode(",", $request->categories);
+            $category = Category::findMany($categories);
+
+            $colors = explode(",", $request->colors);
+            $color = Color::findMany($colors);
+
+            $sizes = explode(",", $request->sizes);
+            $size = Size::findMany($sizes);
+
             $product->categories()->sync($category);
-
-            $color = Color::findMany($request->colors);
             $product->colors()->sync($color);
-
-            $size = Size::findMany($request->sizes);
             $product->sizes()->sync($size);
 
 
             // Manejar múltiples archivos de tipo thumbnail
             if ($request->hasFile('thumbnail')) {
-                // eliminar todos y colocar nuevas
-                $product->clearMediaCollection('images');
-                $product->addMedia($request->file('thumbnail'))->preservingOriginal()->toMediaCollection('images');
+                foreach ($request->file('thumbnail') as $file) {
+                    $product->addMedia($file)->preservingOriginal()->toMediaCollection('images');
+                }
             }
 
             return new ProductResource($product);
@@ -136,7 +143,6 @@ class ProductController extends Controller
             return response()->noContent();
         }
     }
-
     public function getProducts(Request $request)
     {
         $products = Product::with('categories')
@@ -163,9 +169,6 @@ class ProductController extends Controller
         return ProductResource::collection($products);
 
     }
-
-
-
     public function getProductsInterest($id)
     {
         $produc = Product::with('categories', 'colors', 'sizes', 'user', 'media')->findOrFail($id);
@@ -196,5 +199,12 @@ class ProductController extends Controller
             ->paginate(5);
 
         return ProductResource::collection($products);
+    }
+
+    public function destroyThumbnails($id)
+    {
+        $thumbnail = Media::findOrFail($id);
+        $thumbnail->delete();
+        return response()->noContent();
     }
 }

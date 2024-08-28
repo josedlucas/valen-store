@@ -89,7 +89,25 @@ export default function useProducts() {
         isLoading.value = true
         validationErrors.value = {}
 
-        axios.put('/api/products/' + product.id, product)
+
+        let serializedProduct = new FormData()
+        for (let item in product) {
+            if (product.hasOwnProperty(item)) {
+                if(item === 'thumbnail') {
+                    for (let i = 0; i < product.thumbnail.length; i++) {
+                        serializedProduct.append('thumbnail[]', product.thumbnail[i])
+                    }
+                }else{
+                    serializedProduct.append(item, product[item])
+                }
+            }
+        }
+
+        axios.post('/api/products/' + product.id, serializedProduct, {
+            headers: {
+                "content-type": "multipart/form-data"
+            }
+        })
             .then(response => {
                 router.push({name: 'products.index'})
                 swal({

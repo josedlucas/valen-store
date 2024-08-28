@@ -70,9 +70,8 @@
     <section class="py-md-3 py-xxl-3 py-lg-3" id="section4">
         <img class="w-100 d-md-block d-none" src="../../../valenweb/assets/images/home/section4/background.svg" /><img class="w-100 d-md-none d-block" src="../../../valenweb/assets/images/home/section4/background-m.svg" />
         <div class="container-xl mt-xl-n18 mt-xl-n19 mt-n24 col-10 mx-auto col-xl">
-
             <carousel v-bind="carouselSettingsSection4">
-                <slide v-for="slide in slidersSection4" :key="slide" >
+                <slide v-for="slide in slidersSection4" :key="slide" class="w-100 mx-auto">
                     <div class="row">
                         <div class="col-md-6 pe-xl-6 pt-xl-5 text-start">
                             <h3 class="text-white fw-lighter fs-xl-16 fs-16"> {{ slide.count }}</h3>
@@ -197,8 +196,11 @@ const slidersSection4 = [
 const carouselSettingsSection4 = {
     transition: '1500',
     itemsToShow: 1,
-    wrapAround: false,
-    autoplay: 3000
+    itemsToScroll: 1,
+    snapAlign: 'center',
+    wrapAround: true,
+    autoplay: 3000,
+    slideWidth: '100%',
 }
 
 
@@ -238,6 +240,7 @@ const carouselSettingsSection5 = {
         }
     }
 }
+
 </script>
 
 <style scoped>
@@ -247,4 +250,5 @@ const carouselSettingsSection5 = {
  section.carousel{
      background-color: transparent;
  }
+
 </style>

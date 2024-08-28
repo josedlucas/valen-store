@@ -24,7 +24,8 @@ Route::post('reset-password', [ResetPasswordController::class, 'reset'])->name('
 
 Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::apiResource('users', UserController::class);
-    Route::apiResource('products', ProductController::class);
+    Route::apiResource('products', ProductController::class, ['except' => ['update']]);
+    Route::post('products/{id}', [ProductController::class, 'update']);
     Route::apiResource('categories', CategoryController::class);
     Route::apiResource('categorygroupers', CategoryGrouperController::class);
     Route::apiResource('colors', ColorController::class);
@@ -41,7 +42,7 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::get('size-list', [SizeController::class, 'getList']);
     Route::get('/user', [ProfileController::class, 'user']);
     Route::put('/user', [ProfileController::class, 'update']);
-
+    Route::delete('product/thumbnails/{id}', [ProductController::class, 'destroyThumbnails']);
     Route::get('abilities', function(Request $request) {
         return $request->user()->roles()->with('permissions')
             ->get()
