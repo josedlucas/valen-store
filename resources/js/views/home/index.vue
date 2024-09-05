@@ -68,7 +68,8 @@
         </div>
     </section>
     <section class="py-md-3 py-xxl-3 py-lg-3" id="section4">
-        <img class="w-100 d-md-block d-none" src="../../../valenweb/assets/images/home/section4/background.svg" /><img class="w-100 d-md-none d-block" src="../../../valenweb/assets/images/home/section4/background-m.svg" />
+        <img class="w-xl-100 d-md-block d-none " src="../../../valenweb/assets/images/home/section4/background.svg" />
+        <img class="w-100 d-md-none d-block" src="../../../valenweb/assets/images/home/section4/background-m.svg" />
         <div class="container-xl mt-xl-n18 mt-xl-n19 mt-n24 col-10 mx-auto col-xl">
             <carousel v-bind="carouselSettingsSection4" class="slider4">
                 <slide v-for="slide in slidersSection4" :key="slide" class="px-3 px-xl-0">
@@ -79,10 +80,10 @@
                             <p class="text-white text-justify fs-xl-20 fw-lighter fs-14">
                                 {{ slide.description }}
                             </p>
-                            <p class="text-warning font-size-xxxl-20">{{ slide.name}}</p>
+                            <p class="text-warning font-size-xxxl-20" v-html="slide.name"></p>
                         </div>
                         <div class="col-md-6">
-                            <img class="w-xl-80 mt-xl-n2 w-100" :src="slide.image" />
+                            <img class="w-xl-60 rounded-4 w-100" :src="slide.image" />
                         </div>
                     </div>
                 </slide>
@@ -121,7 +122,9 @@ import image2 from '../../../valenweb/assets/images/home/section2/img_1.png';
 import image3 from '../../../valenweb/assets/images/home/section2/img_2.png';
 
 // Slider section 4
-import tstImage from '../../../valenweb/assets/images/home/section4/slider/img.png';
+import edvsa from '../../../valenweb/assets/images/home/section4/slider/edvsa.png';
+import irene from '../../../valenweb/assets/images/home/section4/slider/irene.png';
+import suren from '../../../valenweb/assets/images/home/section4/slider/suren.png';
 
 // Slider section 5
 import markImage from '../../../valenweb/assets/images/home/section5/slider/img.png';
@@ -131,6 +134,9 @@ import markImage3 from '../../../valenweb/assets/images/home/section5/slider/img
 import markImage4 from '../../../valenweb/assets/images/home/section5/slider/img_4.png'
 import markImage5 from '../../../valenweb/assets/images/home/section5/slider/img_5.png'
 import markImage6 from '../../../valenweb/assets/images/home/section5/slider/img_6.png'
+import markImage7 from '../../../valenweb/assets/images/home/section5/slider/img_7.png'
+import markImage8 from '../../../valenweb/assets/images/home/section5/slider/img_8.png'
+import markImage9 from '../../../valenweb/assets/images/home/section5/slider/img_9.png'
 
 
 const slidersSection2 = [
@@ -176,21 +182,21 @@ const carouselSettingsSection2 = {
 const slidersSection4 = [
     {
         count: 'TESTIMONIOS 1 / 3',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus interdum nisi sit amet dolor accumsan luctus. In id tempus lorem, lacinia blandit urna. Etiam at ipsum molestie, porta elit quis, fermentum erat. Aliquam in massa pellentesque, commodo odio non.',
-        image: tstImage,
-        name: 'Nombre de cliente, nombre empresa'
+        description: `“Los chicos de VALEN constantemente se ofrecen como una solución, y han demostrado serlo. Demostraron ser una herramienta muy versátil para satisfacer nuestras necesidades y sobre todo acompañarnos en la dinámica de nuestra compañía, dándonos opciones para resolver nuestras urgencias. Por eso los hemos evaluado en repetidas ocasiones como una de nuestras opciones para quedarnos tranquilos para resolver nuestras demandas.”`,
+        image: edvsa,
+        name: `<div class=" text-uppercase">Jorge Martínez - EDVSA</div>`
     },
     {
         count: 'TESTIMONIOS 2 / 3',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus interdum nisi sit amet dolor accumsan luctus. In id tempus lorem, lacinia blandit urna. Etiam at ipsum molestie, porta elit quis, fermentum erat. Aliquam in massa pellentesque, commodo odio non.',
-        image: tstImage,
-        name: 'Nombre de cliente, nombre empresa'
+        description: `“En la empresa Santa Irene SRL somos clientes de Valen porque valoramos la gran atención y calidez que dispone el equipo de atención al cliente y ventas, entregan la mercadería con mucha rapidez y ofrecen una gran variedad de productos de muy buena calidad con excelentes precios. Muy Recomendables y esperamos continuar trabajando en equipo. ¡Gracias VALEN!”`,
+        image: irene,
+        name: `<div class=" text-uppercase">Laís Oviedo Entreconti - Santa Irene</div>`
     },
     {
         count: 'TESTIMONIOS 3 / 3',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus interdum nisi sit amet dolor accumsan luctus. In id tempus lorem, lacinia blandit urna. Etiam at ipsum molestie, porta elit quis, fermentum erat. Aliquam in massa pellentesque, commodo odio non.',
-        image: tstImage,
-        name: 'Nombre de cliente, nombre empresa'
+        description: `"Venimos trabajando hace un tiempo con Valen, estamos muy conformes con la calidad de la indumentaria y con las respuestas a nuestras consultas, dado que siempre se adaptan a nuestras necesidades y cumplen con sus compromisos asumidos."`,
+        image: suren,
+        name: `<div class=" text-uppercase">Valeria Maiolo - SUREN</div>`
     }
 ];
 const carouselSettingsSection4 = {
@@ -224,6 +230,15 @@ const slidersSection5 = [
     },
     {
         image: markImage6
+    },
+    {
+        image: markImage7
+    },
+    {
+        image: markImage8
+    },
+    {
+        image: markImage9
     }
 ]
 const carouselSettingsSection5 = {

@@ -40,7 +40,7 @@
                         <a class="d-flex d-md-block justify-content-center" href="mailto:ventas.valenindumentaria@gmail.com">
                             <img class="ms-md-4 w-xl-60 w-60" src="../../valenweb/assets/images/icons/email.png" />
                         </a>
-                        <a class="ms-md-3 d-flex d-md-block justify-content-center" href="tel:02994585083">
+                        <a class="ms-md-3 d-flex d-md-block justify-content-center" href="https://wa.me/542994585083" target="_blank">
                             <img class="ms-md-4 w-xl-60 w-60" src="../../valenweb/assets/images/icons/call.png" />
                         </a>
                         <a class="d-flex d-md-block justify-content-center ms-md-3" href="https://www.instagram.com/valenindumentariaaa/?hl=es-la">

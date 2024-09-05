@@ -29,11 +29,11 @@
             <div class="container-xl px-xl-5 mt-md-0 mt-n8 px-4 mx-auto d-block">
                 <div class="col-xl-3 bg-white mt-xl-n15 position-absolute px-xxl-2 py-xxl-4 px-xl-2 py-xl-5 px-2 py-5">
                     <div>
-                        <a class="fw-light fs-xl-13 text-decoration-none" href="tel:02994585083">
+                        <a class="fw-light fs-xl-13 text-decoration-none" href="https://wa.me/542994585083" target="_blank">
                             <img class="me-3" src="../../../valenweb/assets/images/icons/call-2.svg" />(0299) - 4585083</a>
                     </div>
                     <div class="my-xl-3 my-3">
-                        <a class="fw-light fs-xl-13 my-3 text-decoration-none" href="mailto:ventas.valenindumentaria@gmail.com"><img class="me-3" src="../../../valenweb/assets/images/icons/email-2.svg" />ventas@valenindumentaria.com.ar</a>
+                        <a class="fw-light fs-xl-13 my-3 text-decoration-none" href="mailto:ventas.valenindumentaria@gmail.com"><img class="me-3" src="../../../valenweb/assets/images/icons/email-2.svg" />ventas.valenindumentaria@gmail.com</a>
                     </div>
                     <div>
                         <a class="fw-light fs-xl-13 text-decoration-none" href=""><img class="me-3" src="../../../valenweb/assets/images/icons/address.svg" />El Chocón 1433, Neuquén Capital</a>
