@@ -16,10 +16,12 @@
                 </div>
                 <form  @submit.prevent="submitForm" class="col-lg-6 ps-lg-5" >
                     <div class="pt-lg-2 pt-4">
-                        <span class="font-size-14" v-for="category in product?.categories">
-                          {{ category.name }}
-                          <div class="raya-b w-10"></div>
-                        </span>
+                        <div class="d-flex">
+                            <span class="font-size-14 me-2" v-for="(category , index) in product?.categories">
+                              {{ category.name }}{{ index < product?.categories.length - 1 ? ', ' : '' }}
+                            </span>
+                        </div>
+                        <div class="raya-b w-10 mb-2"></div>
                         <h1 class="fs-xl-35 fw-light pt-3">{{ product?.title }}</h1>
                     </div>
                     <div class="pt-lg-4 pt-4 pb-xl-5">
