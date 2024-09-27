@@ -164,7 +164,7 @@ class ProductController extends Controller
             });
         }
         $products = $products->latest()
-        ->paginate();
+        ->paginate(1000);
 
         return ProductResource::collection($products);
 
